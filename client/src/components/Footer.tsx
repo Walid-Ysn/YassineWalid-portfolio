@@ -38,8 +38,8 @@ export default function Footer() {
           >
             <div className="flex items-center gap-2 mb-4">
               <img
-                src="/manus-storage/portfolio-logo_33e7a35b.png"
-                alt="YW Logo"
+                src="/logo.webp"
+                alt="Yassine WALID"
                 className="w-8 h-8"
               />
               <span className="font-bold text-foreground">Yassine WALID</span>

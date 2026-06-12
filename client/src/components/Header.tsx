@@ -38,8 +38,8 @@ export default function Header() {
           whileTap={{ scale: 0.95 }}
         >
           <img
-            src="/manus-storage/portfolio-logo_33e7a35b.png"
-            alt="YW Logo"
+            src="/logo.webp"
+            alt="Yassine WALID"
             className="w-10 h-10"
           />
           <span className="font-bold text-lg text-foreground group-hover:text-primary transition-colors">

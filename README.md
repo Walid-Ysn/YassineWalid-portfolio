@@ -48,7 +48,7 @@ pnpm preview
 ## 📁 Structure du projet
 
 ```
-yassine-portfolio/
+YassineWalid-portfolio/
 ├── client/
 │   ├── public/              # Fichiers statiques (favicon, robots.txt)
 │   ├── src/
