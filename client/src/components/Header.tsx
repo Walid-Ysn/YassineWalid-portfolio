@@ -68,7 +68,7 @@ export default function Header() {
             className="bg-primary hover:bg-primary/90 text-primary-foreground"
             asChild
           >
-          <a href="/data/CV-Walid-Yassine.pdf" download="CV-Yassine-WALID.pdf">
+          <a href="/CV-Walid-Yassine.pdf" download="CV-Yassine-WALID.pdf">
           Télécharger CV
           </a>
           </Button>
@@ -112,7 +112,7 @@ export default function Header() {
               className="bg-primary hover:bg-primary/90 text-primary-foreground w-full"
               asChild
             >
-            <a href="/data/CV-Walid-Yassine.pdf" download="CV-Yassine-WALID.pdf">
+            <a href="/CV-Walid-Yassine.pdf" download="CV-Yassine-WALID.pdf">
             Télécharger CV
             </a>
             </Button>
