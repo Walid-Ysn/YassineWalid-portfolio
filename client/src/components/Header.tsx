@@ -69,9 +69,9 @@ export default function Header() {
             className="bg-primary hover:bg-primary/90 text-primary-foreground"
             asChild
           >
-            <a href="C:\Users\MadJEFF\Documents\Portfolio\Projects\YassineWalid-portfolio\client\src\data\CV-Walid-Yassine.pdf" download="CV-Yassine-WALID.pdf">
-              Télécharger CV
-            </a>
+          <a href="/CV-Walid-Yassine.pdf" download="CV-Yassine-WALID.pdf">
+          Télécharger CV
+          </a>
           </Button>
         </div>
 
@@ -113,9 +113,9 @@ export default function Header() {
               className="bg-primary hover:bg-primary/90 text-primary-foreground w-full"
               asChild
             >
-              <a href="C:\Users\MadJEFF\Documents\Portfolio\Projects\YassineWalid-portfolio\client\src\data\CV-Walid-Yassine.pdf" download="CV-Yassine-WALID.pdf">
-                Télécharger CV
-              </a>
+            <a href="/CV-Walid-Yassine.pdf" download="CV-Yassine-WALID.pdf">
+            Télécharger CV
+            </a>
             </Button>
           </div>
         </motion.nav>
