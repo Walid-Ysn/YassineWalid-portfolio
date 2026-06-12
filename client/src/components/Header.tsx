@@ -43,7 +43,6 @@ export default function Header() {
             className="w-10 h-10"
           />
           <span className="font-bold text-lg text-foreground group-hover:text-primary transition-colors">
-            YW
           </span>
         </motion.a>
 
