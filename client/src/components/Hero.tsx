@@ -131,8 +131,8 @@ export default function Hero() {
             className="bg-primary hover:bg-primary/90 text-primary-foreground group"
             asChild
           >
-            <a href="/manus-storage/CV-Walid-Yassine_7da534cf.pdf" download="CV-Yassine-WALID.pdf" className="flex items-center gap-2">
-              Télécharger CV
+            <a href="/CV-Walid-Yassine.pdf" download="CV-Yassine-WALID.pdf">
+            Télécharger CV
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </Button>
