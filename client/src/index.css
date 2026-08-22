@@ -93,39 +93,39 @@
 }
 
 .dark {
-  /* Dark mode not used for this portfolio - light theme only */
-  --primary: #10B981;
-  --primary-foreground: #FAFAF8;
-  --sidebar-primary: #10B981;
-  --sidebar-primary-foreground: #FAFAF8;
-  --background: #FAFAF8;
-  --foreground: #1A1A18;
-  --card: #FFFFFF;
-  --card-foreground: #1A1A18;
-  --popover: #FFFFFF;
-  --popover-foreground: #1A1A18;
-  --secondary: #F3F4F6;
-  --secondary-foreground: #374151;
-  --muted: #E5E7EB;
-  --muted-foreground: #6B7280;
-  --accent: #10B981;
-  --accent-foreground: #FAFAF8;
-  --destructive: #DC2626;
-  --destructive-foreground: #FAFAF8;
-  --border: #E5E7EB;
-  --input: #F3F4F6;
-  --ring: #10B981;
-  --chart-1: #10B981;
-  --chart-2: #059669;
-  --chart-3: #047857;
-  --chart-4: #065F46;
-  --chart-5: #064E3B;
-  --sidebar: #FAFAF8;
-  --sidebar-foreground: #1A1A18;
-  --sidebar-accent: #10B981;
-  --sidebar-accent-foreground: #FAFAF8;
-  --sidebar-border: #E5E7EB;
-  --sidebar-ring: #10B981;
+  /* Deep charcoal surfaces with the same emerald accent */
+  --primary: #34D399;
+  --primary-foreground: #06251A;
+  --sidebar-primary: #34D399;
+  --sidebar-primary-foreground: #06251A;
+  --background: #0D1412;
+  --foreground: #ECFDF5;
+  --card: #15201C;
+  --card-foreground: #ECFDF5;
+  --popover: #15201C;
+  --popover-foreground: #ECFDF5;
+  --secondary: #1B2923;
+  --secondary-foreground: #D1FAE5;
+  --muted: #24362E;
+  --muted-foreground: #A7BDB2;
+  --accent: #34D399;
+  --accent-foreground: #06251A;
+  --destructive: #F87171;
+  --destructive-foreground: #450A0A;
+  --border: #2A4036;
+  --input: #1B2923;
+  --ring: #34D399;
+  --chart-1: #34D399;
+  --chart-2: #10B981;
+  --chart-3: #059669;
+  --chart-4: #047857;
+  --chart-5: #065F46;
+  --sidebar: #101A16;
+  --sidebar-foreground: #ECFDF5;
+  --sidebar-accent: #34D399;
+  --sidebar-accent-foreground: #06251A;
+  --sidebar-border: #2A4036;
+  --sidebar-ring: #34D399;
 }
 
 @layer base {

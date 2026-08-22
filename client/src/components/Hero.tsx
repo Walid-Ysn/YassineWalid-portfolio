@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getGmailComposeUrl } from '@/lib/contact';
 
 /**
  * Hero section with animated typewriter effect and CTA
@@ -12,9 +14,15 @@ import { useEffect, useState } from 'react';
  * - CTA buttons with hover effects
  */
 export default function Hero() {
+  const { locale, t } = useLanguage();
   const [displayedText, setDisplayedText] = useState('');
-  const fullText = 'Ingénierie AI & Data Science';
+  const fullText = t('hero.title');
   const [isTyping, setIsTyping] = useState(true);
+
+  useEffect(() => {
+    setDisplayedText('');
+    setIsTyping(true);
+  }, [locale, fullText]);
 
   useEffect(() => {
     if (displayedText.length < fullText.length && isTyping) {
@@ -92,9 +100,7 @@ export default function Hero() {
         {/* Subtitle */}
         <motion.div variants={itemVariants} className="mb-8">
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
-            Étudiant en 4ème année d'ingénierie informatique à EMSI Casablanca, spécialisé en
-            Data Science et Intelligence Artificielle. Recherche un stage PFA en Data Analysis /
-            Data Science.
+              {t('hero.description')}
           </p>
         </motion.div>
 
@@ -105,12 +111,12 @@ export default function Hero() {
         >
           <div className="flex items-center gap-2">
             <span className="text-primary">📍</span>
-            <span>Sidi Ma'rouf, Casablanca, Maroc</span>
+            <span>{t('hero.location')}</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-primary">📧</span>
             <a
-              href="mailto:yassine.walid40@gmail.com"
+              href={getGmailComposeUrl()}
               className="hover:text-foreground transition-colors"
             >
               yassine.walid40@gmail.com
@@ -132,7 +138,7 @@ export default function Hero() {
             asChild
           >
             <a href="/CV-Walid-Yassine.pdf" download="CV-Yassine-WALID.pdf">
-            Télécharger CV
+              {t('hero.download')}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </Button>
@@ -142,7 +148,7 @@ export default function Hero() {
             className="border-primary text-primary hover:bg-primary/10"
             asChild
           >
-            <a href="#projects">Voir mes projets</a>
+            <a href="#projects">{t('hero.projects')}</a>
           </Button>
         </motion.div>
 
@@ -153,7 +159,7 @@ export default function Hero() {
           transition={{ duration: 2, repeat: Infinity } as any}
         >
           <div className="flex flex-col items-center gap-2">
-            <span className="text-xs text-muted-foreground">Défiler pour découvrir</span>
+            <span className="text-xs text-muted-foreground">{t('hero.scroll')}</span>
             <div className="w-6 h-10 border-2 border-primary rounded-full flex items-center justify-center">
               <motion.div
                 className="w-1 h-2 bg-primary rounded-full"

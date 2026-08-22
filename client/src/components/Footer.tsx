@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Heart, Github, Linkedin, Mail } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getGmailComposeUrl } from '@/lib/contact';
 
 /**
  * Footer component
@@ -10,19 +12,20 @@ import { Heart, Github, Linkedin, Mail } from 'lucide-react';
  */
 
 export default function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { label: 'À propos', href: '#about' },
-    { label: 'Compétences', href: '#skills' },
-    { label: 'Projets', href: '#projects' },
-    { label: 'Contact', href: '#contact' },
+    { label: t('nav.about'), href: '#about' },
+    { label: t('nav.skills'), href: '#skills' },
+    { label: t('nav.projects'), href: '#projects' },
+    { label: t('nav.contact'), href: '#contact' },
   ];
 
   const socialLinks = [
     { icon: Github, url: 'https://github.com/Walid-Ysn', label: 'GitHub' },
     { icon: Linkedin, url: 'https://shorturl.at/ZeIzo', label: 'LinkedIn' },
-    { icon: Mail, url: 'mailto:yassine.walid40@gmail.com', label: 'Email' },
+    { icon: Mail, url: getGmailComposeUrl(), label: t('contact.email') },
   ];
 
   return (
@@ -45,7 +48,7 @@ export default function Footer() {
               <span className="font-bold text-foreground">Yassine WALID</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Ingénieur AI & Data Science
+              {t('brand.role')}
             </p>
           </motion.div>
 
@@ -56,7 +59,7 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h4 className="font-semibold text-foreground mb-4">Navigation</h4>
+            <h4 className="font-semibold text-foreground mb-4">{t('footer.navigation')}</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.label}>
@@ -78,7 +81,7 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="font-semibold text-foreground mb-4">Réseaux sociaux</h4>
+            <h4 className="font-semibold text-foreground mb-4">{t('footer.social')}</h4>
             <div className="flex gap-4">
               {socialLinks.map((social) => {
                 const IconComponent = social.icon;
@@ -113,10 +116,10 @@ export default function Footer() {
           viewport={{ once: true }}
         >
           <p>
-            © {currentYear} Yassine WALID. Tous droits réservés.
+            © {currentYear} Yassine WALID. {t('footer.rights')}
           </p>
           <p className="flex items-center gap-1">
-            Fait avec <Heart className="w-4 h-4 text-primary fill-primary" /> en Maroc
+            {t('footer.madeWith')} <Heart className="w-4 h-4 text-primary fill-primary" /> {t('footer.in')}
           </p>
         </motion.div>
       </div>

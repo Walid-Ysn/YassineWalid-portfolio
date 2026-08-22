@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
  * About section with personal biography
@@ -9,6 +10,7 @@ import { useInView } from 'react-intersection-observer';
  * - Clean typography hierarchy
  */
 export default function About() {
+  const { t } = useLanguage();
   const { ref, inView } = useInView({
     threshold: 0.2,
     triggerOnce: true,
@@ -45,40 +47,28 @@ export default function About() {
           {/* Section header */}
           <motion.div variants={itemVariants} className="mb-12">
             <div className="accent-line mb-4" />
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">À propos</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">{t('about.title')}</h2>
             <p className="text-lg text-muted-foreground">
-              Découvrez mon parcours et mes motivations
+              {t('about.subtitle')}
             </p>
           </motion.div>
 
           {/* Main content */}
           <motion.div variants={itemVariants} className="space-y-6 text-lg text-foreground">
             <p className="leading-relaxed">
-              Je suis Yassine WALID, un étudiant passionné en ingénierie informatique à EMSI
-              Casablanca, actuellement en 4ème année de mon cycle d'ingénieur. Ma spécialisation
-              porte sur la Data Science et l'Intelligence Artificielle, deux domaines qui
-              façonnent l'avenir de la technologie.
+              {t('about.p1')}
             </p>
 
             <p className="leading-relaxed">
-              Célibataire, 23 ans, basé à Sidi Ma'rouf à Casablanca, je suis un professionnel
-              en herbe qui combine une solide formation théorique avec une expérience pratique
-              concrète. Mon parcours m'a permis de maîtriser les technologies modernes et les
-              méthodologies agiles.
+              {t('about.p2')}
             </p>
 
             <p className="leading-relaxed">
-              En juillet 2025, j'ai complété un stage de 1 mois en tant que Full Stack Developer
-              chez xHub, au Technopark de Casablanca. Pendant cette expérience, j'ai contribué
-              au développement de la plateforme bancaire numérique X-Bank, en travaillant sur
-              des APIs RESTful robustes avec Spring Boot et des interfaces réactives avec React
-              et TypeScript.
+              {t('about.p3')}
             </p>
 
             <p className="leading-relaxed">
-              Actuellement, je recherche un stage PFA (Projet de Fin d'Année) en Data Analysis
-              ou Data Science pour approfondir mes compétences et contribuer à des projets
-              d'impact. Je suis motivé par les défis complexes et l'apprentissage continu.
+              {t('about.p4')}
             </p>
           </motion.div>
 
@@ -88,10 +78,10 @@ export default function About() {
             className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-12 border-t border-border"
           >
             {[
-              { label: 'Années d\'étude', value: '4' },
-              { label: 'Projets complétés', value: '10+' },
-              { label: 'Langues parlées', value: '3' },
-              { label: 'Technologies maîtrisées', value: '15+' },
+              { label: t('about.stats.study'), value: '4' },
+              { label: t('about.stats.projects'), value: '10+' },
+              { label: t('about.stats.languages'), value: '3' },
+              { label: t('about.stats.technologies'), value: '15+' },
             ].map((stat, index) => (
               <motion.div
                 key={index}

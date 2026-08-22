@@ -3,6 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import { useEffect, useState } from 'react';
 import { Github, Star, GitFork, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
  * Projects section with GitHub API integration
@@ -25,6 +26,7 @@ interface GithubRepo {
 }
 
 export default function Projects() {
+  const { t } = useLanguage();
   const { ref, inView } = useInView({
     threshold: 0.2,
     triggerOnce: true,
@@ -51,7 +53,7 @@ export default function Projects() {
         setRepos(data);
       } catch (err) {
         console.error('Error fetching repos:', err);
-        setError('Impossible de charger les projets GitHub');
+        setError('github');
       } finally {
         setLoading(false);
       }
@@ -83,7 +85,7 @@ export default function Projects() {
   const featuredProject = {
     name: 'X-Bank Digital Platform',
     description:
-      'Application bancaire fullstack avec APIs RESTful Spring Boot et interfaces React/TypeScript. Gestion des annonces, uploads, authentification JWT, dashboards admin et analytics.',
+      t('projects.featuredDescription'),
     technologies: ['Spring Boot', 'React', 'TypeScript', 'PostgreSQL', 'JWT', 'Tailwind CSS'],
     link: '#',
     featured: true,
@@ -101,9 +103,9 @@ export default function Projects() {
           {/* Section header */}
           <motion.div variants={itemVariants} className="mb-16">
             <div className="accent-line mb-4" />
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Projets</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">{t('projects.title')}</h2>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              Découvrez mes projets en Data Science, développement fullstack et ingénierie
+              {t('projects.subtitle')}
             </p>
           </motion.div>
 
@@ -113,7 +115,7 @@ export default function Projects() {
               <div className="flex items-start justify-between mb-6">
                 <div>
                   <div className="inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-semibold rounded-full mb-3">
-                    Projet en vedette
+                    {t('projects.featured')}
                   </div>
                   <h3 className="text-3xl font-bold text-foreground mb-2">{featuredProject.name}</h3>
                 </div>
@@ -139,11 +141,11 @@ export default function Projects() {
               <div className="flex gap-4">
                 <Button variant="default" className="bg-primary hover:bg-primary/90">
                   <Github className="w-4 h-4 mr-2" />
-                  Voir le code
+                  {t('projects.code')}
                 </Button>
                 <Button variant="outline">
                   <ExternalLink className="w-4 h-4 mr-2" />
-                  Démo
+                  {t('projects.demo')}
                 </Button>
               </div>
             </div>
@@ -151,7 +153,7 @@ export default function Projects() {
 
           {/* GitHub Projects Grid */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-2xl font-bold text-foreground mb-8">Projets récents</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-8">{t('projects.recent')}</h3>
 
             {loading ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -165,7 +167,7 @@ export default function Projects() {
               </div>
             ) : error ? (
               <div className="bg-destructive/10 text-destructive p-6 rounded-lg text-center">
-                {error}
+                {t('projects.error')}
               </div>
             ) : repos.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -196,7 +198,7 @@ export default function Projects() {
 
                     {/* Description */}
                     <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                      {repo.description || 'Pas de description'}
+                      {repo.description || t('projects.noDescription')}
                     </p>
 
                     {/* Footer with language and forks */}
@@ -219,7 +221,7 @@ export default function Projects() {
               </div>
             ) : (
               <div className="text-center py-12">
-                <p className="text-muted-foreground">Aucun projet trouvé</p>
+                <p className="text-muted-foreground">{t('projects.none')}</p>
               </div>
             )}
           </motion.div>
@@ -234,7 +236,7 @@ export default function Projects() {
             >
               <a href="https://github.com/Walid-Ysn" target="_blank" rel="noopener noreferrer">
                 <Github className="w-4 h-4 mr-2" />
-                Voir tous les projets sur GitHub
+                {t('projects.viewAll')}
               </a>
             </Button>
           </motion.div>

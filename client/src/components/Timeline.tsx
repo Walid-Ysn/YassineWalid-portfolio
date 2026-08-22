@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { BookOpen, Briefcase } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
  * Timeline component for Education & Experience
@@ -20,6 +21,7 @@ interface TimelineEntry {
 }
 
 export default function Timeline() {
+  const { t } = useLanguage();
   const { ref, inView } = useInView({
     threshold: 0.2,
     triggerOnce: true,
@@ -28,35 +30,35 @@ export default function Timeline() {
   const timelineData: TimelineEntry[] = [
     {
       type: 'experience',
-      title: 'Stagiaire Full Stack Developer',
+      title: t('timeline.internship.title'),
       organization: 'xHub, Technopark Casablanca',
-      period: 'Juil. 2025 (1 mois – Remote)',
+      period: t('timeline.internship.period'),
       description: [
-        'Développement d\'APIs RESTful avec Spring Boot pour la gestion des annonces, uploads et authentification JWT',
-        'Création d\'interfaces React/TypeScript pour dashboards admin et analytics',
-        'Stack: Spring Boot, React, TypeScript, Java, PostgreSQL, JWT, Tailwind CSS',
+        t('timeline.internship.d1'),
+        t('timeline.internship.d2'),
+        t('timeline.internship.d3'),
       ],
-      location: 'Casablanca, Maroc',
+      location: t('location.casablanca'),
     },
     {
       type: 'education',
-      title: 'Cycle Ingénieur – Informatique et Réseaux',
+      title: t('timeline.engineering.title'),
       organization: 'EMSI Casablanca',
-      period: '2022–2027 (4ème année)',
+      period: t('timeline.engineering.period'),
       description: [
-        'Spécialisation en Data Science et Intelligence Artificielle',
-        'Cours clés: Bases de données, Statistiques, Python/Java, IA, Big Data, NoSQL, Linux',
-        'Recherche active d\'un stage PFA en Data Analysis / Data Science',
+        t('timeline.engineering.d1'),
+        t('timeline.engineering.d2'),
+        t('timeline.engineering.d3'),
       ],
-      location: 'Casablanca, Maroc',
+      location: t('location.casablanca'),
     },
     {
       type: 'education',
-      title: 'Baccalauréat Sciences Physiques',
+      title: t('timeline.baccalaureate.title'),
       organization: 'Lycée Ibn Arabi',
-      period: '2019/2020',
-      description: ['Formation générale en sciences physiques et mathématiques'],
-      location: 'Casablanca, Maroc',
+      period: t('timeline.baccalaureate.period'),
+      description: [t('timeline.baccalaureate.d1')],
+      location: t('location.casablanca'),
     },
   ];
 
@@ -92,10 +94,10 @@ export default function Timeline() {
           <motion.div variants={itemVariants} className="mb-16">
             <div className="accent-line mb-4" />
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Formation & Expérience
+              {t('timeline.title')}
             </h2>
             <p className="text-lg text-muted-foreground">
-              Parcours académique et professionnel
+              {t('timeline.subtitle')}
             </p>
           </motion.div>
 
@@ -151,7 +153,7 @@ export default function Timeline() {
                                 : 'bg-accent/20 text-accent'
                             }`}
                           >
-                            {isExperience ? 'Expérience' : 'Formation'}
+                            {isExperience ? t('timeline.experience') : t('timeline.education')}
                           </span>
                         </div>
 

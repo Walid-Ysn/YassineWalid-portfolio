@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Globe } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
  * Languages section
@@ -17,6 +18,7 @@ interface Language {
 }
 
 export default function Languages() {
+  const { t } = useLanguage();
   const { ref, inView } = useInView({
     threshold: 0.2,
     triggerOnce: true,
@@ -24,22 +26,22 @@ export default function Languages() {
 
   const languages: Language[] = [
     {
-      name: 'Arabe',
-      level: 'Langue maternelle',
-      proficiency: 100,
-      flag: '🇲🇦',
+      name: t('languages.english'),
+      level: t('languages.professional'),
+      proficiency: 80,
+      flag: '🇬🇧',
     },
     {
-      name: 'Français',
-      level: 'Courant',
+      name: t('languages.french'),
+      level: t('languages.fluent'),
       proficiency: 95,
       flag: '🇫🇷',
     },
     {
-      name: 'Anglais',
-      level: 'Professionnel',
-      proficiency: 80,
-      flag: '🇬🇧',
+      name: t('languages.arabic'),
+      level: t('languages.native'),
+      proficiency: 100,
+      flag: '🇲🇦',
     },
   ];
 
@@ -75,10 +77,10 @@ export default function Languages() {
           <motion.div variants={itemVariants} className="mb-12">
             <div className="flex items-center gap-3 mb-4">
               <Globe className="w-8 h-8 text-primary" />
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground">Langues</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground">{t('languages.title')}</h2>
             </div>
             <p className="text-lg text-muted-foreground">
-              Maîtrise de plusieurs langues pour une communication efficace
+              {t('languages.subtitle')}
             </p>
           </motion.div>
 
@@ -102,7 +104,7 @@ export default function Languages() {
                 {/* Proficiency bar */}
                 <div className="space-y-2">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-xs font-semibold text-muted-foreground">Proficiency</span>
+                    <span className="text-xs font-semibold text-muted-foreground">{t('languages.proficiency')}</span>
                     <span className="text-sm font-bold text-primary">{language.proficiency}%</span>
                   </div>
                   <div className="w-full bg-border rounded-full h-2 overflow-hidden">
@@ -120,12 +122,12 @@ export default function Languages() {
 
           {/* Interests section */}
           <motion.div variants={itemVariants} className="mt-16 bg-secondary rounded-lg p-8">
-            <h3 className="text-2xl font-bold text-foreground mb-6">Centres d'intérêt</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-6">{t('interests.title')}</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { icon: '🎮', title: 'Gaming', description: 'Passion pour les jeux vidéo et la stratégie' },
-                { icon: '🤖', title: 'Intelligence Artificielle', description: 'Fascination pour l\'IA et le machine learning' },
-                { icon: '✈️', title: 'Voyage', description: 'Découverte de nouvelles cultures et horizons' },
+                { icon: '🎮', title: t('interests.gamingTitle'), description: t('interests.gaming') },
+                { icon: '🤖', title: t('interests.aiTitle'), description: t('interests.ai') },
+                { icon: '✈️', title: t('interests.travelTitle'), description: t('interests.travel') },
               ].map((interest, index) => (
                 <motion.div
                   key={index}

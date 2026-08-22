@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Code2, Database, BarChart3, Zap } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
  * Skills section with animated progress rings and categories
@@ -10,6 +11,7 @@ import { Code2, Database, BarChart3, Zap } from 'lucide-react';
  * - Hover effects for interactivity
  */
 export default function Skills() {
+  const { t } = useLanguage();
   const { ref, inView } = useInView({
     threshold: 0.2,
     triggerOnce: true,
@@ -47,9 +49,9 @@ export default function Skills() {
     },
     {
       icon: Database,
-      title: 'Bases de données',
+      title: t('skills.category.databases'),
       skills: [
-        { name: 'SQL avancé', proficiency: 90 },
+        { name: t('skills.advancedSql'), proficiency: 90 },
         { name: 'PostgreSQL', proficiency: 85 },
         { name: 'MongoDB', proficiency: 80 },
         { name: 'Neo4j', proficiency: 75 },
@@ -57,7 +59,7 @@ export default function Skills() {
     },
     {
       icon: Code2,
-      title: 'Développement',
+      title: t('skills.category.development'),
       skills: [
         { name: 'React.js', proficiency: 85 },
         { name: 'Spring Boot', proficiency: 80 },
@@ -67,7 +69,7 @@ export default function Skills() {
     },
     {
       icon: Zap,
-      title: 'Outils & Plateformes',
+      title: t('skills.category.tools'),
       skills: [
         { name: 'GitHub', proficiency: 90 },
         { name: 'Power BI', proficiency: 80 },
@@ -134,9 +136,9 @@ export default function Skills() {
           {/* Section header */}
           <motion.div variants={itemVariants} className="mb-16">
             <div className="accent-line mb-4" />
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Compétences</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">{t('skills.title')}</h2>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              Maîtrise des technologies modernes en Data Science, développement et ingénierie
+              {t('skills.subtitle')}
             </p>
           </motion.div>
 
@@ -171,17 +173,17 @@ export default function Skills() {
 
           {/* Additional skills section */}
           <motion.div variants={itemVariants} className="mt-16 bg-background rounded-lg p-8">
-            <h3 className="text-2xl font-bold text-foreground mb-6">Compétences supplémentaires</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-6">{t('skills.additional')}</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
                 'Machine Learning',
                 'Deep Learning',
-                'Data Engineering',
+                t('skills.dataEngineering'),
                 'Statistics',
-                'Data Cleaning',
-                'Cloud Computing',
-                'API RESTful',
-                'Agile/Scrum',
+                t('skills.dataCleaning'),
+                t('skills.cloud'),
+                t('skills.api'),
+                t('skills.agile'),
               ].map((skill, index) => (
                 <motion.div
                   key={index}
