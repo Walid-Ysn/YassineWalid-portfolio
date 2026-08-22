@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { getGmailComposeUrl } from '@/lib/contact';
+import { getCvDownload } from '@/lib/cv';
 
 /**
  * Hero section with animated typewriter effect and CTA
@@ -17,6 +18,7 @@ export default function Hero() {
   const { locale, t } = useLanguage();
   const [displayedText, setDisplayedText] = useState('');
   const fullText = t('hero.title');
+  const cv = getCvDownload(locale);
   const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
@@ -137,7 +139,7 @@ export default function Hero() {
             className="bg-primary hover:bg-primary/90 text-primary-foreground group"
             asChild
           >
-            <a href="/CV-Walid-Yassine.pdf" download="CV-Yassine-WALID.pdf">
+            <a href={cv.href} download={cv.filename}>
               {t('hero.download')}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>

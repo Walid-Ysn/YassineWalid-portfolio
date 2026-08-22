@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useLanguage, type Locale } from "@/contexts/LanguageContext";
 import { useTheme } from "@/contexts/ThemeContext";
+import { getCvDownload } from "@/lib/cv";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,6 +20,7 @@ export default function Header() {
   ];
 
   const themeLabel = theme === "dark" ? t("theme.switchToLight") : t("theme.switchToDark");
+  const cv = getCvDownload(locale);
 
   const controls = (
     <div className="flex items-center gap-2">
@@ -92,7 +94,7 @@ export default function Header() {
         <div className="hidden items-center gap-3 lg:flex">
           {controls}
           <Button variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
-            <a href="/CV-Walid-Yassine.pdf" download="CV-Yassine-WALID.pdf">
+            <a href={cv.href} download={cv.filename}>
               {t("header.download")}
             </a>
           </Button>
@@ -132,7 +134,7 @@ export default function Header() {
               </a>
             ))}
             <Button variant="default" className="w-full bg-primary text-primary-foreground hover:bg-primary/90" asChild>
-              <a href="/CV-Walid-Yassine.pdf" download="CV-Yassine-WALID.pdf">
+              <a href={cv.href} download={cv.filename}>
                 {t("header.download")}
               </a>
             </Button>
