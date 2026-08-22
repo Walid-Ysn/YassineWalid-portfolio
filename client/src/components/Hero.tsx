@@ -85,6 +85,14 @@ export default function Hero() {
           <div className="accent-line" />
         </motion.div>
 
+        {/* Availability signal */}
+        <motion.div variants={itemVariants} className="mb-6">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 text-sm font-semibold text-primary">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-primary" aria-hidden="true" />
+            {t('hero.availability')}
+          </div>
+        </motion.div>
+
         {/* Main title with typewriter effect */}
         <motion.div variants={itemVariants} className="mb-6">
           <h1 className="text-5xl md:text-7xl font-bold text-foreground leading-tight">
@@ -151,6 +159,14 @@ export default function Hero() {
             asChild
           >
             <a href="#projects">{t('hero.projects')}</a>
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-border text-foreground hover:border-primary hover:text-primary"
+            asChild
+          >
+            <a href="#contact">{t('hero.contact')}</a>
           </Button>
         </motion.div>
 

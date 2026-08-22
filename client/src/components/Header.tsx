@@ -77,7 +77,7 @@ export default function Header() {
           </span>
         </motion.a>
 
-        <nav className="hidden items-center gap-6 lg:flex" aria-label={t("nav.contact")}>
+        <nav className="hidden items-center gap-6 lg:flex" aria-label={t("nav.primary")}>
           {navLinks.map((link) => (
             <motion.a
               key={link.href}
@@ -105,7 +105,7 @@ export default function Header() {
           <motion.button
             type="button"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? t("nav.contact") : t("nav.projects")}
+            aria-label={isMenuOpen ? t("header.closeMenu") : t("header.openMenu")}
             aria-expanded={isMenuOpen}
             className="rounded-lg p-2 text-foreground transition-colors hover:bg-secondary"
             whileTap={{ scale: 0.95 }}

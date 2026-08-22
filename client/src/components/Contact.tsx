@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useState } from "react";
-import { Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
+import { Check, Copy, Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -23,6 +23,7 @@ export default function Contact() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [emailCopied, setEmailCopied] = useState(false);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -79,6 +80,17 @@ export default function Contact() {
     }
   };
 
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(CONTACT_EMAIL);
+      setEmailCopied(true);
+      toast.success(t("contact.emailCopied"));
+      window.setTimeout(() => setEmailCopied(false), 2000);
+    } catch {
+      toast.error(t("contact.copyError"));
+    }
+  };
+
   const contactInfo = [
     {
       icon: Mail,
@@ -127,24 +139,40 @@ export default function Contact() {
               <div className="space-y-6">
                 {contactInfo.map((info) => {
                   const IconComponent = info.icon;
+                  const isEmail = info.label === t("contact.email");
+
                   return (
-                    <motion.a
+                    <motion.div
                       key={info.label}
-                      href={info.link}
-                      className="group flex items-start gap-4"
+                      className="flex items-start gap-2"
                       whileHover={{ x: 8 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
-                        <IconComponent className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-sm text-muted-foreground">{info.label}</p>
-                        <p className="font-semibold text-foreground transition-colors group-hover:text-primary">
-                          {info.value}
-                        </p>
-                      </div>
-                    </motion.a>
+                      <a href={info.link} className="group flex min-w-0 flex-1 items-start gap-4">
+                        <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
+                          <IconComponent className="h-6 w-6 text-primary" />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-sm text-muted-foreground">{info.label}</p>
+                          <p className="break-words font-semibold text-foreground transition-colors group-hover:text-primary">
+                            {info.value}
+                          </p>
+                        </div>
+                      </a>
+                      {isEmail && (
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="icon"
+                          onClick={handleCopyEmail}
+                          aria-label={t("contact.copyEmail")}
+                          title={t("contact.copyEmail")}
+                          className="mt-1 flex-shrink-0 border-border text-foreground hover:border-primary hover:text-primary"
+                        >
+                          {emailCopied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                        </Button>
+                      )}
+                    </motion.div>
                   );
                 })}
               </div>

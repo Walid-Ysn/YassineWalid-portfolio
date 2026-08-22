@@ -84,13 +84,15 @@ YassineWalid-portfolio/
 - Titre animé avec effet typewriter
 - Sous-titre avec fade-in animation
 - Informations de contact (email, téléphone, localisation)
-- Boutons CTA (Télécharger CV, Voir les projets)
+- Boutons CTA (Télécharger CV, Voir les projets, Me contacter)
+- Badge de disponibilité pour un stage PFA
 - Indicateur de scroll animé
 
 ### 2. About Section
 - Biographie professionnelle
 - Statistiques clés (années d'étude, projets, langues, technologies)
-- Contenu en français polished
+- Interface multilingue en anglais, français et arabe avec mise en page RTL en arabe
+- L'anglais est la langue par défaut
 
 ### 3. Skills Section
 - 4 catégories de compétences (Data, Bases de données, Développement, Outils)
@@ -116,6 +118,8 @@ YassineWalid-portfolio/
 
 ### 7. Contact Section
 - Formulaire de contact avec validation
+- Redirection Gmail avec message prérempli
+- Bouton de copie rapide de l'adresse email
 - Informations de contact (email, téléphone, localisation)
 - Liens vers réseaux sociaux (GitHub, LinkedIn)
 - Notifications toast pour succès/erreur
@@ -124,6 +128,13 @@ YassineWalid-portfolio/
 - Navigation rapide
 - Liens sociaux
 - Copyright et attribution
+
+### 9. Discoverability & Accessibility
+- Skip link pour la navigation au clavier
+- Métadonnées Open Graph et Twitter Card
+- Données structurées Schema.org pour le profil de Yassine
+- Mode clair/sombre persistant
+- CV anglais et français sélectionné automatiquement selon la langue
 
 ## 🎨 Palette de couleurs
 
@@ -188,7 +199,7 @@ Les projets sont chargés automatiquement depuis le compte GitHub `Walid-Ysn`. P
 
 ### Télécharger un CV
 
-Placez votre fichier PDF dans `client/public/resume.pdf` et mettez à jour le lien dans `client/src/components/Header.tsx` et `client/src/components/Hero.tsx`.
+Les CV sont stockés dans `client/public/` : `CV-Walid-Yassine.pdf` pour la version anglaise et `CV-Walid-Yassine-FR.pdf` pour la version française. Le sélecteur de langue choisit automatiquement le fichier approprié dans `client/src/lib/cv.ts`. La version anglaise sert de solution de repli pour l'interface arabe, car aucun CV arabe n'est actuellement fourni.
 
 ## 📱 Responsive Design
 
@@ -205,6 +216,8 @@ Le portfolio est entièrement responsive avec breakpoints Tailwind :
 - ARIA labels sur les éléments interactifs
 - Respect de `prefers-reduced-motion`
 - Sémantique HTML correcte
+- Skip link et libellés ARIA localisés
+- Support de la mise en page RTL arabe
 
 ## 🚀 Déploiement
 
