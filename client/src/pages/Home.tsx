@@ -2,6 +2,8 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
+import News from '@/components/News';
+import DataChallenge from '@/components/DataChallenge';
 import Timeline from '@/components/Timeline';
 import Languages from '@/components/Languages';
 import Contact from '@/components/Contact';
@@ -31,6 +33,8 @@ export default function Home() {
         <About />
         <Skills />
         <Projects />
+        <News />
+        <DataChallenge />
         <Timeline />
         <Languages />
         <Contact />

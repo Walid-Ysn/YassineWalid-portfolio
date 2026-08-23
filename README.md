@@ -58,6 +58,8 @@ YassineWalid-portfolio/
 │   │   │   ├── About.tsx
 │   │   │   ├── Skills.tsx
 │   │   │   ├── Projects.tsx
+│   │   │   ├── News.tsx
+│   │   │   ├── DataChallenge.tsx
 │   │   │   ├── Timeline.tsx
 │   │   │   ├── Languages.tsx
 │   │   │   ├── Contact.tsx
@@ -105,18 +107,29 @@ YassineWalid-portfolio/
 - Projet en vedette : X-Bank Digital Platform
 - Liens vers GitHub et démo
 
-### 5. Timeline Section
+### 5. Data Analysis News Section
+- Actualités live filtrées sur la Data Science via Hacker News Search powered by Algolia
+- Cartes externes avec date, score et commentaires
+- États de chargement, erreur, état vide et bouton d'actualisation
+- Aucun token privé requis côté navigateur
+
+### 6. Data Analyst Challenge
+- Mini-jeu de cinq questions sur les statistiques, la visualisation et le machine learning
+- Score, progression, explications et possibilité de rejouer
+- Interface clavier-friendly et entièrement localisée
+
+### 7. Timeline Section
 - Formation et expérience professionnelle
 - Ligne de connexion animée
 - Icônes pour différencier formation vs expérience
 - Descriptions détaillées
 
-### 6. Languages Section
+### 8. Languages Section
 - 3 langues avec niveaux de proficiency
 - Barres de progression animées
 - Centres d'intérêt (Gaming, IA, Voyage)
 
-### 7. Contact Section
+### 9. Contact Section
 - Formulaire de contact avec validation
 - Redirection Gmail avec message prérempli
 - Bouton de copie rapide de l'adresse email
@@ -124,12 +137,12 @@ YassineWalid-portfolio/
 - Liens vers réseaux sociaux (GitHub, LinkedIn)
 - Notifications toast pour succès/erreur
 
-### 8. Footer
+### 10. Footer
 - Navigation rapide
 - Liens sociaux
 - Copyright et attribution
 
-### 9. Discoverability & Accessibility
+### 11. Discoverability & Accessibility
 - Skip link pour la navigation au clavier
 - Métadonnées Open Graph et Twitter Card
 - Données structurées Schema.org pour le profil de Yassine
@@ -278,6 +291,8 @@ Lighthouse targets :
 
 - [ ] Mettre à jour toutes les informations personnelles
 - [ ] Vérifier les liens (GitHub, LinkedIn, email)
+- [ ] Vérifier le chargement du fil d'actualités live
+- [ ] Tester le mini-jeu Data Analyst
 - [ ] Ajouter votre CV en PDF
 - [ ] Tester sur mobile et desktop
 - [ ] Vérifier l'accessibilité (axe DevTools)
@@ -297,7 +312,7 @@ Lighthouse targets :
 - **Icons** : Lucide React
 - **Notifications** : Sonner
 - **Routing** : Wouter
-- **API** : GitHub REST API
+- **API** : GitHub REST API + Hacker News Search powered by Algolia
 
 ## 📚 Ressources
 
