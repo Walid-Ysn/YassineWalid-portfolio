@@ -30,6 +30,21 @@ export default function Timeline() {
   const timelineData: TimelineEntry[] = [
     {
       type: 'experience',
+      title: t('timeline.attijari.title'),
+      organization: 'Attijariwafa Bank · Direction Audit Général Groupe (AGG)',
+      period: t('timeline.attijari.period'),
+      description: [
+        t('timeline.attijari.d1'),
+        t('timeline.attijari.d2'),
+        t('timeline.attijari.d3'),
+        t('timeline.attijari.d4'),
+        t('timeline.attijari.d5'),
+        t('timeline.attijari.d6'),
+      ],
+      location: t('location.casablanca'),
+    },
+    {
+      type: 'experience',
       title: t('timeline.internship.title'),
       organization: 'xHub, Technopark Casablanca',
       period: t('timeline.internship.period'),
