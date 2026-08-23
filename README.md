@@ -60,14 +60,17 @@ YassineWalid-portfolio/
 │   │   │   ├── Projects.tsx
 │   │   │   ├── News.tsx
 │   │   │   ├── DataChallenge.tsx
+│   │   │   ├── LazySection.tsx
 │   │   │   ├── Timeline.tsx
 │   │   │   ├── Languages.tsx
 │   │   │   ├── Contact.tsx
 │   │   │   └── Footer.tsx
+│   │   ├── lib/
+│   │   │   ├── analytics.ts
+│   │   │   └── ...
 │   │   ├── pages/
 │   │   │   ├── Home.tsx     # Page principale
 │   │   │   └── NotFound.tsx
-│   │   ├── lib/             # Utilitaires
 │   │   ├── index.css        # Styles globaux et design tokens
 │   │   ├── main.tsx         # Point d'entrée React
 │   │   └── App.tsx          # Composant racine
@@ -110,6 +113,8 @@ YassineWalid-portfolio/
 ### 5. Data Analysis News Section
 - Actualités live filtrées sur la Data Science via Hacker News Search powered by Algolia
 - Cartes externes avec date, score et commentaires
+- Filtres par thème : Data Science, BI, IA et toutes les actualités
+- Horodatage de dernière mise à jour
 - États de chargement, erreur, état vide et bouton d'actualisation
 - Aucun token privé requis côté navigateur
 
@@ -118,18 +123,23 @@ YassineWalid-portfolio/
 - Score, progression, explications et possibilité de rejouer
 - Interface clavier-friendly et entièrement localisée
 
-### 7. Timeline Section
+### 7. Engagement Analytics
+- Événements explicites pour les téléchargements de CV, clics Gmail, clics GitHub, filtres d'actualités et résultats du mini-jeu
+- Aucun suivi automatique lorsque les variables Umami ne sont pas configurées
+- Aucun nom, adresse email ou contenu de formulaire envoyé dans les événements
+
+### 8. Timeline Section
 - Formation et expérience professionnelle
 - Ligne de connexion animée
 - Icônes pour différencier formation vs expérience
 - Descriptions détaillées
 
-### 8. Languages Section
+### 9. Languages Section
 - 3 langues avec niveaux de proficiency
 - Barres de progression animées
 - Centres d'intérêt (Gaming, IA, Voyage)
 
-### 9. Contact Section
+### 10. Contact Section
 - Formulaire de contact avec validation
 - Redirection Gmail avec message prérempli
 - Bouton de copie rapide de l'adresse email
@@ -137,14 +147,15 @@ YassineWalid-portfolio/
 - Liens vers réseaux sociaux (GitHub, LinkedIn)
 - Notifications toast pour succès/erreur
 
-### 10. Footer
+### 11. Footer
 - Navigation rapide
 - Liens sociaux
 - Copyright et attribution
 
-### 11. Discoverability & Accessibility
+### 12. Discoverability & Accessibility
 - Skip link pour la navigation au clavier
-- Métadonnées Open Graph et Twitter Card
+- Métadonnées Open Graph et Twitter Card avec image sociale locale
+- Canonical URL, robots.txt et sitemap.xml
 - Données structurées Schema.org pour le profil de Yassine
 - Mode clair/sombre persistant
 - CV anglais et français sélectionné automatiquement selon la langue
@@ -277,6 +288,8 @@ Lighthouse targets :
 - Images compressées et lazy-loaded
 - Code splitting avec Vite
 - CSS minifié avec Tailwind
+- Sections sous la ligne de flottaison chargées à la demande via code splitting
+- Analytics chargé uniquement lorsque ses variables d'environnement sont présentes
 - Fonts optimisées (Google Fonts avec subsets)
 - Animations GPU-accelerated (transform, opacity only)
 
@@ -298,8 +311,9 @@ Lighthouse targets :
 - [ ] Vérifier l'accessibilité (axe DevTools)
 - [ ] Tester les animations (prefers-reduced-motion)
 - [ ] Vérifier les performances (Lighthouse)
-- [ ] Configurer le domaine personnalisé
+- [ ] Configurer le domaine personnalisé et mettre à jour la canonical URL si nécessaire
 - [ ] Activer HTTPS
+- [ ] Configurer `VITE_ANALYTICS_ENDPOINT` et `VITE_ANALYTICS_WEBSITE_ID` si l'analytics est souhaité
 - [ ] Ajouter Google Analytics (optionnel)
 
 ## 🛠️ Stack technologique

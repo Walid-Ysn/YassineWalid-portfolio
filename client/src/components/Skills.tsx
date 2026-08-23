@@ -125,7 +125,7 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-20 md:py-32 bg-secondary">
+    <section className="py-20 md:py-32 bg-secondary">
       <div className="container max-w-6xl">
         <motion.div
           ref={ref}

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useLanguage, type Locale } from "@/contexts/LanguageContext";
 import { useTheme } from "@/contexts/ThemeContext";
 import { getCvDownload } from "@/lib/cv";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -96,7 +97,11 @@ export default function Header() {
         <div className="hidden items-center gap-3 lg:flex">
           {controls}
           <Button variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
-            <a href={cv.href} download={cv.filename}>
+            <a
+              href={cv.href}
+              download={cv.filename}
+              onClick={() => trackEvent("cv_download", { location: "header_desktop", locale })}
+            >
               {t("header.download")}
             </a>
           </Button>
@@ -136,7 +141,11 @@ export default function Header() {
               </a>
             ))}
             <Button variant="default" className="w-full bg-primary text-primary-foreground hover:bg-primary/90" asChild>
-              <a href={cv.href} download={cv.filename}>
+              <a
+                href={cv.href}
+                download={cv.filename}
+                onClick={() => trackEvent("cv_download", { location: "header_mobile", locale })}
+              >
                 {t("header.download")}
               </a>
             </Button>

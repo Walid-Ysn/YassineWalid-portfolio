@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { CONTACT_EMAIL, getGmailComposeUrl } from "@/lib/contact";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -68,6 +69,7 @@ export default function Contact() {
         `${t("contact.message")}:\n${formData.message}`,
       ].join("\n\n");
 
+      trackEvent("contact_submit", { location: "contact_form" });
       window.location.assign(
         getGmailComposeUrl({
           subject: `${t("contact.title")} — ${formData.subject}`,
@@ -83,6 +85,7 @@ export default function Contact() {
   const handleCopyEmail = async () => {
     try {
       await navigator.clipboard.writeText(CONTACT_EMAIL);
+      trackEvent("contact_copy_email", { location: "contact_section" });
       setEmailCopied(true);
       toast.success(t("contact.emailCopied"));
       window.setTimeout(() => setEmailCopied(false), 2000);
@@ -118,7 +121,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="bg-secondary py-20 md:py-32">
+    <section className="bg-secondary py-20 md:py-32">
       <div className="container max-w-6xl">
         <motion.div
           ref={ref}
@@ -148,7 +151,11 @@ export default function Contact() {
                       whileHover={{ x: 8 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <a href={info.link} className="group flex min-w-0 flex-1 items-start gap-4">
+                      <a
+                        href={info.link}
+                        onClick={() => isEmail && trackEvent("contact_click", { location: "contact_email" })}
+                        className="group flex min-w-0 flex-1 items-start gap-4"
+                      >
                         <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
                           <IconComponent className="h-6 w-6 text-primary" />
                         </div>
@@ -189,6 +196,7 @@ export default function Contact() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={social.label}
+                        onClick={() => trackEvent("social_click", { network: social.label })}
                         className="flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-background text-foreground transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}

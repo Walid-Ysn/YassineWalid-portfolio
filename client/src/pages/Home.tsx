@@ -1,20 +1,30 @@
+import { lazy } from 'react';
 import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Skills from '@/components/Skills';
-import Projects from '@/components/Projects';
-import News from '@/components/News';
-import DataChallenge from '@/components/DataChallenge';
-import Timeline from '@/components/Timeline';
-import Languages from '@/components/Languages';
-import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import LazySection from '@/components/LazySection';
 import { useLanguage } from '@/contexts/LanguageContext';
+
+const About = lazy(() => import('@/components/About'));
+const Skills = lazy(() => import('@/components/Skills'));
+const Projects = lazy(() => import('@/components/Projects'));
+const News = lazy(() => import('@/components/News'));
+const DataChallenge = lazy(() => import('@/components/DataChallenge'));
+const Timeline = lazy(() => import('@/components/Timeline'));
+const Languages = lazy(() => import('@/components/Languages'));
+const Contact = lazy(() => import('@/components/Contact'));
+
+function SectionFallback() {
+  return (
+    <div className="container flex min-h-[12rem] items-center justify-center" aria-hidden="true">
+      <div className="h-1 w-20 animate-pulse rounded-full bg-primary/30" />
+    </div>
+  );
+}
 
 /**
  * Home page - Main portfolio page
- * Combines all sections: Header, Hero, About, Skills, Projects, Education, Contact
- * Design: Refined Brutalism with asymmetric layout and smooth animations
+ * Below-the-fold sections are code-split so the hero can render quickly on mobile.
  */
 export default function Home() {
   const { t } = useLanguage();
@@ -30,14 +40,14 @@ export default function Home() {
       <Header />
       <main id="main-content">
         <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <News />
-        <DataChallenge />
-        <Timeline />
-        <Languages />
-        <Contact />
+        <LazySection id="about" component={About} fallback={<SectionFallback />} />
+        <LazySection id="skills" component={Skills} fallback={<SectionFallback />} />
+        <LazySection id="projects" component={Projects} fallback={<SectionFallback />} />
+        <LazySection id="news" component={News} fallback={<SectionFallback />} />
+        <LazySection id="game" component={DataChallenge} fallback={<SectionFallback />} />
+        <LazySection id="education" component={Timeline} fallback={<SectionFallback />} />
+        <LazySection id="languages" component={Languages} fallback={<SectionFallback />} />
+        <LazySection id="contact" component={Contact} fallback={<SectionFallback />} />
       </main>
       <Footer />
     </div>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://walid-ysn.github.io/YassineWalid-portfolio/sitemap.xml

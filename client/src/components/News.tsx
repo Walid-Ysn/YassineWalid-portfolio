@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { trackEvent } from '@/lib/analytics';
 
 interface HackerNewsHit {
   objectID: string;
@@ -16,21 +17,40 @@ interface HackerNewsHit {
   num_comments?: number;
 }
 
-const NEWS_ENDPOINT =
-  'https://hn.algolia.com/api/v1/search_by_date?query=data%20science&tags=story&hitsPerPage=6';
+type NewsTopic = 'all' | 'bi' | 'dataScience' | 'ai';
+
+type TopicConfig = {
+  id: NewsTopic;
+  query: string;
+  labelKey: string;
+};
+
+const NEWS_TOPICS: TopicConfig[] = [
+  { id: 'dataScience', query: 'data science', labelKey: 'news.topic.dataScience' },
+  { id: 'bi', query: 'business intelligence', labelKey: 'news.topic.bi' },
+  { id: 'ai', query: 'artificial intelligence', labelKey: 'news.topic.ai' },
+  { id: 'all', query: 'data', labelKey: 'news.topic.all' },
+];
+
+const getNewsEndpoint = (topic: NewsTopic) => {
+  const config = NEWS_TOPICS.find((item) => item.id === topic) ?? NEWS_TOPICS[0];
+  return `https://hn.algolia.com/api/v1/search_by_date?query=${encodeURIComponent(config.query)}&tags=story&hitsPerPage=6`;
+};
 
 export default function News() {
   const { locale, t } = useLanguage();
   const { ref, inView } = useInView({ threshold: 0.12, triggerOnce: true });
   const [articles, setArticles] = useState<HackerNewsHit[]>([]);
+  const [topic, setTopic] = useState<NewsTopic>('dataScience');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
 
-  const loadNews = useCallback(async (signal?: AbortSignal) => {
+  const loadNews = useCallback(async (selectedTopic: NewsTopic, signal?: AbortSignal) => {
     try {
       setLoading(true);
       setError(false);
-      const response = await fetch(NEWS_ENDPOINT, { signal });
+      const response = await fetch(getNewsEndpoint(selectedTopic), { signal });
 
       if (!response.ok) {
         throw new Error('Unable to fetch news');
@@ -38,6 +58,7 @@ export default function News() {
 
       const data = (await response.json()) as { hits?: HackerNewsHit[] };
       setArticles((data.hits ?? []).filter((article) => article.title));
+      setLastUpdated(new Date());
     } catch (fetchError) {
       if (fetchError instanceof DOMException && fetchError.name === 'AbortError') {
         return;
@@ -53,9 +74,9 @@ export default function News() {
 
   useEffect(() => {
     const controller = new AbortController();
-    void loadNews(controller.signal);
+    void loadNews(topic, controller.signal);
     return () => controller.abort();
-  }, [loadNews]);
+  }, [loadNews, topic]);
 
   const dateLocale = useMemo(() => {
     if (locale === 'fr') return 'fr-FR';
@@ -63,7 +84,7 @@ export default function News() {
     return 'en-US';
   }, [locale]);
 
-  const formatDate = (date?: string) => {
+  const formatArticleDate = (date?: string) => {
     if (!date) return '';
     return new Intl.DateTimeFormat(dateLocale, {
       month: 'short',
@@ -72,8 +93,20 @@ export default function News() {
     }).format(new Date(date));
   };
 
+  const formatUpdatedAt = (date: Date) =>
+    new Intl.DateTimeFormat(dateLocale, {
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit',
+    }).format(date);
+
   const getStoryUrl = (article: HackerNewsHit) =>
     article.url || article.story_url || `https://news.ycombinator.com/item?id=${article.objectID}`;
+
+  const sourceUrl = `https://hn.algolia.com/?q=${encodeURIComponent(
+    NEWS_TOPICS.find((item) => item.id === topic)?.query ?? 'data science',
+  )}`;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -85,8 +118,18 @@ export default function News() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.45 } },
   };
 
+  const handleTopicChange = (nextTopic: NewsTopic) => {
+    setTopic(nextTopic);
+    trackEvent('news_topic_filter', { topic: nextTopic });
+  };
+
+  const handleRefresh = () => {
+    trackEvent('news_refresh', { topic });
+    void loadNews(topic);
+  };
+
   return (
-    <section id="news" className="bg-secondary/25 py-20 md:py-28">
+    <section className="bg-secondary/25 py-20 md:py-28">
       <div className="container max-w-6xl">
         <motion.div
           ref={ref}
@@ -94,22 +137,46 @@ export default function News() {
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
         >
-          <motion.div variants={itemVariants} className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <div>
-              <div className="accent-line mb-4" />
-              <h2 className="mb-4 text-4xl font-bold text-foreground md:text-5xl">{t('news.title')}</h2>
-              <p className="max-w-2xl text-lg text-muted-foreground">{t('news.subtitle')}</p>
+          <motion.div variants={itemVariants} className="mb-12 flex flex-col gap-6">
+            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div>
+                <div className="accent-line mb-4" />
+                <h2 className="mb-4 text-4xl font-bold text-foreground md:text-5xl">{t('news.title')}</h2>
+                <p className="max-w-2xl text-lg text-muted-foreground">{t('news.subtitle')}</p>
+              </div>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={handleRefresh}
+                disabled={loading}
+                className="w-fit border-primary text-primary hover:bg-primary/10"
+              >
+                <RefreshCw className={`mr-2 h-4 w-4 ${loading ? 'animate-spin' : ''}`} aria-hidden="true" />
+                {t('news.refresh')}
+              </Button>
             </div>
-            <Button
-              type="button"
-              variant="outline"
-              onClick={() => void loadNews()}
-              disabled={loading}
-              className="w-fit border-primary text-primary hover:bg-primary/10"
-            >
-              <RefreshCw className={`mr-2 h-4 w-4 ${loading ? 'animate-spin' : ''}`} aria-hidden="true" />
-              {t('news.refresh')}
-            </Button>
+
+            <div className="flex flex-wrap items-center gap-2" role="group" aria-label={t('news.filterLabel')}>
+              {NEWS_TOPICS.map((newsTopic) => (
+                <Button
+                  key={newsTopic.id}
+                  type="button"
+                  size="sm"
+                  variant={topic === newsTopic.id ? 'default' : 'outline'}
+                  aria-pressed={topic === newsTopic.id}
+                  onClick={() => handleTopicChange(newsTopic.id)}
+                  className={topic === newsTopic.id ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'border-border text-foreground hover:border-primary hover:text-primary'}
+                >
+                  {t(newsTopic.labelKey)}
+                </Button>
+              ))}
+            </div>
+
+            {lastUpdated && !loading && (
+              <p className="text-sm text-muted-foreground" aria-live="polite">
+                {t('news.updated').replace('{time}', formatUpdatedAt(lastUpdated))}
+              </p>
+            )}
           </motion.div>
 
           {loading ? (
@@ -126,7 +193,7 @@ export default function News() {
           ) : error ? (
             <div className="rounded-lg border border-destructive/30 bg-destructive/10 p-8 text-center">
               <p className="mb-5 text-destructive">{t('news.error')}</p>
-              <Button type="button" variant="outline" onClick={() => void loadNews()}>
+              <Button type="button" variant="outline" onClick={handleRefresh}>
                 {t('news.retry')}
               </Button>
             </div>
@@ -134,7 +201,7 @@ export default function News() {
             <div className="rounded-lg border border-dashed border-border bg-card p-8 text-center">
               <p className="mb-5 text-muted-foreground">{t('news.empty')}</p>
               <a
-                href="https://hn.algolia.com/?q=data%20science"
+                href={sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-primary underline-offset-4 hover:underline"
@@ -151,6 +218,7 @@ export default function News() {
                   href={getStoryUrl(article)}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('news_article_open', { topic })}
                   className="group flex h-full flex-col rounded-lg border border-border bg-card p-6 transition-colors hover:border-primary/60 hover:bg-card/80"
                 >
                   <div className="mb-5 flex items-center justify-between gap-3 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
@@ -161,7 +229,7 @@ export default function News() {
                     {article.title}
                   </h3>
                   <div className="mt-auto flex flex-wrap items-center gap-4 border-t border-border pt-4 text-xs text-muted-foreground">
-                    {article.created_at && <span>{formatDate(article.created_at)}</span>}
+                    {article.created_at && <span>{formatArticleDate(article.created_at)}</span>}
                     {typeof article.points === 'number' && (
                       <span className="inline-flex items-center gap-1">
                         <Star className="h-3.5 w-3.5" aria-hidden="true" />

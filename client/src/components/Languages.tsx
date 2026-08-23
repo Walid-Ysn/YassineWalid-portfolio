@@ -65,7 +65,7 @@ export default function Languages() {
   };
 
   return (
-    <section id="languages" className="py-20 md:py-32 bg-background">
+    <section className="py-20 md:py-32 bg-background">
       <div className="container max-w-4xl">
         <motion.div
           ref={ref}

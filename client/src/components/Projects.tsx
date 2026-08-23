@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Github, Star, GitFork, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { trackEvent } from '@/lib/analytics';
 
 /**
  * Projects section with GitHub API integration
@@ -92,7 +93,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-20 md:py-32 bg-background">
+    <section className="py-20 md:py-32 bg-background">
       <div className="container max-w-6xl">
         <motion.div
           ref={ref}
@@ -176,6 +177,7 @@ export default function Projects() {
                     key={repo.id}
                     href={repo.html_url}
                     target="_blank"
+                    onClick={() => trackEvent('github_project_open', { project: repo.name })}
                     rel="noopener noreferrer"
                     className="bg-card border border-border rounded-lg p-6 hover-lift group"
                     variants={itemVariants}
@@ -234,7 +236,12 @@ export default function Projects() {
               asChild
               className="border-primary text-primary hover:bg-primary/10"
             >
-              <a href="https://github.com/Walid-Ysn" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://github.com/Walid-Ysn"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent('github_profile_open', { location: 'projects' })}
+              >
                 <Github className="w-4 h-4 mr-2" />
                 {t('projects.viewAll')}
               </a>

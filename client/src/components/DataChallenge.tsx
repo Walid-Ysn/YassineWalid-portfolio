@@ -3,6 +3,7 @@ import { BarChart3, Check, RotateCcw, Sparkles, X } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { trackEvent } from '@/lib/analytics';
 
 const questions = [
   {
@@ -50,6 +51,10 @@ export default function DataChallenge() {
   const handleAnswer = (answerIndex: number) => {
     if (answered) return;
     setSelectedAnswer(answerIndex);
+    trackEvent('game_answer', {
+      question: questionIndex + 1,
+      correct: answerIndex === question.answer,
+    });
     if (answerIndex === question.answer) {
       setScore((currentScore) => currentScore + 1);
     }
@@ -57,6 +62,7 @@ export default function DataChallenge() {
 
   const handleNext = () => {
     if (questionIndex === questions.length - 1) {
+      trackEvent('game_complete', { score, total: questions.length });
       setIsFinished(true);
       return;
     }
@@ -65,6 +71,7 @@ export default function DataChallenge() {
   };
 
   const resetGame = () => {
+    trackEvent('game_replay');
     setQuestionIndex(0);
     setSelectedAnswer(null);
     setScore(0);
@@ -74,7 +81,7 @@ export default function DataChallenge() {
   const progress = ((questionIndex + (answered ? 1 : 0)) / questions.length) * 100;
 
   return (
-    <section id="game" className="bg-background py-20 md:py-28" aria-labelledby="data-challenge-title">
+    <section className="bg-background py-20 md:py-28" aria-labelledby="data-challenge-title">
       <div className="container max-w-6xl">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <motion.div

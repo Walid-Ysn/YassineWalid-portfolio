@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { getGmailComposeUrl } from '@/lib/contact';
 import { getCvDownload } from '@/lib/cv';
+import { trackEvent } from '@/lib/analytics';
 
 /**
  * Hero section with animated typewriter effect and CTA
@@ -127,6 +128,7 @@ export default function Hero() {
             <span className="text-primary">📧</span>
             <a
               href={getGmailComposeUrl()}
+              onClick={() => trackEvent('contact_click', { location: 'hero_email' })}
               className="hover:text-foreground transition-colors"
             >
               yassine.walid40@gmail.com
@@ -147,7 +149,11 @@ export default function Hero() {
             className="bg-primary hover:bg-primary/90 text-primary-foreground group"
             asChild
           >
-            <a href={cv.href} download={cv.filename}>
+            <a
+              href={cv.href}
+              download={cv.filename}
+              onClick={() => trackEvent('cv_download', { location: 'hero', locale })}
+            >
               {t('hero.download')}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
@@ -166,7 +172,9 @@ export default function Hero() {
             className="border-border text-foreground hover:border-primary hover:text-primary"
             asChild
           >
-            <a href="#contact">{t('hero.contact')}</a>
+            <a href="#contact" onClick={() => trackEvent('contact_click', { location: 'hero_cta' })}>
+              {t('hero.contact')}
+            </a>
           </Button>
         </motion.div>
 

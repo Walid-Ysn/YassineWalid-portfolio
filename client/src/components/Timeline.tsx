@@ -97,7 +97,7 @@ export default function Timeline() {
   };
 
   return (
-    <section id="education" className="py-20 md:py-32 bg-secondary">
+    <section className="py-20 md:py-32 bg-secondary">
       <div className="container max-w-4xl">
         <motion.div
           ref={ref}

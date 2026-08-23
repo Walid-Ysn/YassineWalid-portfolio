@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Heart, Github, Linkedin, Mail } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { getGmailComposeUrl } from '@/lib/contact';
+import { trackEvent } from '@/lib/analytics';
 
 /**
  * Footer component
@@ -19,6 +20,8 @@ export default function Footer() {
     { label: t('nav.about'), href: '#about' },
     { label: t('nav.skills'), href: '#skills' },
     { label: t('nav.projects'), href: '#projects' },
+    { label: t('nav.news'), href: '#news' },
+    { label: t('nav.game'), href: '#game' },
     { label: t('nav.contact'), href: '#contact' },
   ];
 
@@ -96,6 +99,7 @@ export default function Footer() {
                     whileTap={{ scale: 0.95 }}
                     title={social.label}
                     aria-label={social.label}
+                    onClick={() => trackEvent('footer_social_click', { network: social.label })}
                   >
                     <IconComponent className="w-5 h-5" />
                   </motion.a>
