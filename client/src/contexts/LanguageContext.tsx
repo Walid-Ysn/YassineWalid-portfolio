@@ -28,7 +28,7 @@ const translations: Record<Locale, TranslationMap> = {
     "hero.title": "AI Engineering & Data Science",
     "hero.availability": "Open to PFE internship opportunities",
     "hero.contact": "Contact me",
-    "hero.description": "Fourth-year computer engineering student at EMSI Casablanca, specializing in Data Science and Artificial Intelligence. Currently seeking a PFA internship in Data Analysis or Data Science.",
+    "hero.description": "Fourth-year computer engineering student at EMSI Casablanca, specializing in Data Science and Artificial Intelligence. Currently seeking a PFE internship in Data Analysis or Data Science.",
     "hero.location": "Sidi Ma'rouf, Casablanca, Morocco",
     "hero.download": "Download CV",
     "hero.projects": "View my projects",
