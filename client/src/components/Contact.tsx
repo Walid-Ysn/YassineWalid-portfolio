@@ -117,7 +117,7 @@ export default function Contact() {
 
   const socialLinks = [
     { icon: Github, label: "GitHub", url: "https://github.com/Walid-Ysn" },
-    { icon: Linkedin, label: "LinkedIn", url: "https://shorturl.at/ZeIzo" },
+    { icon: Linkedin, label: "LinkedIn", url: "https://www.linkedin.com/in/yassinewalid0/" },
   ];
 
   return (

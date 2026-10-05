@@ -345,7 +345,7 @@ Ce projet est sous licence MIT. Libre d'utilisation et de modification.
 **Yassine WALID**
 - Email: yassine.walid40@gmail.com
 - GitHub: https://github.com/Walid-Ysn
-- LinkedIn: https://shorturl.at/ZeIzo
+- LinkedIn: https://www.linkedin.com/in/yassinewalid0/
 - Localisation: Sidi Ma'rouf, Casablanca, Maroc
 
 ---
