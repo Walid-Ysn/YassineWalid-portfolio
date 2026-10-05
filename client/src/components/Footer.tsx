@@ -27,7 +27,7 @@ export default function Footer() {
 
   const socialLinks = [
     { icon: Github, url: 'https://github.com/Walid-Ysn', label: 'GitHub' },
-    { icon: Linkedin, url: 'https://shorturl.at/ZeIzo', label: 'LinkedIn' },
+    { icon: Linkedin, url: 'https://www.linkedin.com/in/yassinewalid0/', label: 'LinkedIn' },
     { icon: Mail, url: getGmailComposeUrl(), label: t('contact.email') },
   ];
 
