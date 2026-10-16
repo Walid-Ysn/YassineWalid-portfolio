@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useEffect, useState } from 'react';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { getGmailComposeUrl } from '@/lib/contact';
-import { getCvDownload } from '@/lib/cv';
-import { trackEvent } from '@/lib/analytics';
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getGmailComposeUrl } from "@/lib/contact";
+import { getCvPreview } from "@/lib/cv";
+import { trackEvent } from "@/lib/analytics";
 
 /**
  * Hero section with animated typewriter effect and CTA
@@ -17,13 +17,13 @@ import { trackEvent } from '@/lib/analytics';
  */
 export default function Hero() {
   const { locale, t } = useLanguage();
-  const [displayedText, setDisplayedText] = useState('');
-  const fullText = t('hero.title');
-  const cv = getCvDownload(locale);
+  const [displayedText, setDisplayedText] = useState("");
+  const fullText = t("hero.title");
+  const cv = getCvPreview(locale);
   const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
-    setDisplayedText('');
+    setDisplayedText("");
     setIsTyping(true);
   }, [locale, fullText]);
 
@@ -68,7 +68,7 @@ export default function Hero() {
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: `url('/manus-storage/hero-background_0052793c.png')`,
-          backgroundAttachment: 'fixed',
+          backgroundAttachment: "fixed",
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-background/40" />
@@ -89,8 +89,11 @@ export default function Hero() {
         {/* Availability signal */}
         <motion.div variants={itemVariants} className="mb-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 text-sm font-semibold text-primary">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-primary" aria-hidden="true" />
-            {t('hero.availability')}
+            <span
+              className="h-2 w-2 animate-pulse rounded-full bg-primary"
+              aria-hidden="true"
+            />
+            {t("hero.availability")}
           </div>
         </motion.div>
 
@@ -111,7 +114,7 @@ export default function Hero() {
         {/* Subtitle */}
         <motion.div variants={itemVariants} className="mb-8">
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
-              {t('hero.description')}
+            {t("hero.description")}
           </p>
         </motion.div>
 
@@ -122,13 +125,15 @@ export default function Hero() {
         >
           <div className="flex items-center gap-2">
             <span className="text-primary">📍</span>
-            <span>{t('hero.location')}</span>
+            <span>{t("hero.location")}</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-primary">📧</span>
             <a
               href={getGmailComposeUrl()}
-              onClick={() => trackEvent('contact_click', { location: 'hero_email' })}
+              onClick={() =>
+                trackEvent("contact_click", { location: "hero_email" })
+              }
               className="hover:text-foreground transition-colors"
             >
               yassine.walid40@gmail.com
@@ -136,14 +141,20 @@ export default function Hero() {
           </div>
           <div className="flex items-center gap-2">
             <span className="text-primary">📱</span>
-            <a href="tel:+212635260207" className="hover:text-foreground transition-colors">
+            <a
+              href="tel:+212635260207"
+              className="hover:text-foreground transition-colors"
+            >
               (+212) 635 260 207
             </a>
           </div>
         </motion.div>
 
         {/* CTA Buttons */}
-        <motion.div variants={itemVariants} className="flex flex-col md:flex-row gap-4">
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-col md:flex-row gap-4"
+        >
           <Button
             size="lg"
             className="bg-primary hover:bg-primary/90 text-primary-foreground group"
@@ -151,10 +162,13 @@ export default function Hero() {
           >
             <a
               href={cv.href}
-              download={cv.filename}
-              onClick={() => trackEvent('cv_download', { location: 'hero', locale })}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                trackEvent("cv_preview", { location: "hero", locale })
+              }
             >
-              {t('hero.download')}
+              {t("hero.download")}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </Button>
@@ -164,7 +178,7 @@ export default function Hero() {
             className="border-primary text-primary hover:bg-primary/10"
             asChild
           >
-            <a href="#projects">{t('hero.projects')}</a>
+            <a href="#projects">{t("hero.projects")}</a>
           </Button>
           <Button
             size="lg"
@@ -172,8 +186,13 @@ export default function Hero() {
             className="border-border text-foreground hover:border-primary hover:text-primary"
             asChild
           >
-            <a href="#contact" onClick={() => trackEvent('contact_click', { location: 'hero_cta' })}>
-              {t('hero.contact')}
+            <a
+              href="#contact"
+              onClick={() =>
+                trackEvent("contact_click", { location: "hero_cta" })
+              }
+            >
+              {t("hero.contact")}
             </a>
           </Button>
         </motion.div>
@@ -185,7 +204,9 @@ export default function Hero() {
           transition={{ duration: 2, repeat: Infinity } as any}
         >
           <div className="flex flex-col items-center gap-2">
-            <span className="text-xs text-muted-foreground">{t('hero.scroll')}</span>
+            <span className="text-xs text-muted-foreground">
+              {t("hero.scroll")}
+            </span>
             <div className="w-6 h-10 border-2 border-primary rounded-full flex items-center justify-center">
               <motion.div
                 className="w-1 h-2 bg-primary rounded-full"

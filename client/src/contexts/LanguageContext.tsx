@@ -24,27 +24,33 @@ const translations: Record<Locale, TranslationMap> = {
     "nav.contact": "Contact",
     "header.openMenu": "Open menu",
     "header.closeMenu": "Close menu",
-    "header.download": "Download CV",
+    "header.download": "Preview CV",
     "hero.title": "AI Engineering & Data Science",
     "hero.availability": "Open to PFE internship opportunities",
     "hero.contact": "Contact me",
-    "hero.description": "Fifth-year computer engineering student at EMSI Casablanca, specializing in Data Science and Artificial Intelligence. Currently seeking a PFE internship in Data Analysis or Data Science.",
+    "hero.description":
+      "Fifth-year computer engineering student at EMSI Casablanca, specializing in Data Science and Artificial Intelligence. Currently seeking a PFE internship in Data Analysis or Data Science.",
     "hero.location": "Sidi Ma'rouf, Casablanca, Morocco",
-    "hero.download": "Download CV",
+    "hero.download": "Preview CV",
     "hero.projects": "View my projects",
     "hero.scroll": "Scroll to discover",
     "about.title": "About me",
     "about.subtitle": "Discover my background and motivation",
-    "about.p1": "I am Yassine WALID, a passionate computer engineering student at EMSI Casablanca, currently in the Fifth year of my engineering program. I specialize in Data Science and Artificial Intelligence, two fields shaping the future of technology.",
-    "about.p2": "Single, 23 years old, and based in Sidi Ma'rouf, Casablanca, I am an aspiring professional who combines a strong theoretical foundation with hands-on experience. My journey has helped me master modern technologies and agile methodologies.",
-    "about.p3": "In July 2025, I completed a one-month internship as a Full Stack Developer at xHub, in Casablanca Technopark. During this experience, I contributed to the development of the X-Bank digital banking platform, working on robust Spring Boot REST APIs and reactive React and TypeScript interfaces.",
-    "about.p4": "I am currently looking for a PFE internship in Data Analysis or Data Science to deepen my skills and contribute to impactful projects. I am motivated by complex challenges and continuous learning.",
+    "about.p1":
+      "I am Yassine WALID, a passionate computer engineering student at EMSI Casablanca, currently in the Fifth year of my engineering program. I specialize in Data Science and Artificial Intelligence, two fields shaping the future of technology.",
+    "about.p2":
+      "Single, 23 years old, and based in Sidi Ma'rouf, Casablanca, I am an aspiring professional who combines a strong theoretical foundation with hands-on experience. My journey has helped me master modern technologies and agile methodologies.",
+    "about.p3":
+      "In July 2025, I completed a one-month internship as a Full Stack Developer at xHub, in Casablanca Technopark. During this experience, I contributed to the development of the X-Bank digital banking platform, working on robust Spring Boot REST APIs and reactive React and TypeScript interfaces.",
+    "about.p4":
+      "I am currently looking for a PFE internship in Data Analysis or Data Science to deepen my skills and contribute to impactful projects. I am motivated by complex challenges and continuous learning.",
     "about.stats.study": "Years of study",
     "about.stats.projects": "Completed projects",
     "about.stats.languages": "Languages spoken",
     "about.stats.technologies": "Technologies mastered",
     "skills.title": "Skills",
-    "skills.subtitle": "Proficiency in modern technologies across Data Science, development, and engineering",
+    "skills.subtitle":
+      "Proficiency in modern technologies across Data Science, development, and engineering",
     "skills.category.databases": "Databases",
     "skills.category.development": "Development",
     "skills.category.tools": "Tools & Platforms",
@@ -56,9 +62,11 @@ const translations: Record<Locale, TranslationMap> = {
     "skills.api": "RESTful APIs",
     "skills.agile": "Agile/Scrum",
     "projects.title": "Projects",
-    "projects.subtitle": "Explore my projects in Data Science, full-stack development, and engineering",
+    "projects.subtitle":
+      "Explore my projects in Data Science, full-stack development, and engineering",
     "projects.featured": "Featured project",
-    "projects.featuredDescription": "Full-stack banking application with Spring Boot REST APIs and React/TypeScript interfaces. Includes announcement management, uploads, JWT authentication, admin dashboards, and analytics.",
+    "projects.featuredDescription":
+      "Full-stack banking application with Spring Boot REST APIs and React/TypeScript interfaces. Includes announcement management, uploads, JWT authentication, admin dashboards, and analytics.",
     "projects.code": "View code",
     "projects.demo": "Demo",
     "projects.recent": "Recent projects",
@@ -67,14 +75,16 @@ const translations: Record<Locale, TranslationMap> = {
     "projects.none": "No projects found",
     "projects.viewAll": "View all projects on GitHub",
     "news.title": "Data Analysis News",
-    "news.subtitle": "Fresh stories from the data, AI, and developer community.",
+    "news.subtitle":
+      "Fresh stories from the data, AI, and developer community.",
     "news.refresh": "Refresh",
     "news.loading": "Loading the latest stories",
     "news.error": "The live news feed is temporarily unavailable.",
     "news.retry": "Try again",
     "news.empty": "No recent stories matched the data-science search.",
     "news.openSource": "Open Hacker News search",
-    "news.sourceNote": "Live stories are fetched from Hacker News Search powered by Algolia.",
+    "news.sourceNote":
+      "Live stories are fetched from Hacker News Search powered by Algolia.",
     "news.filterLabel": "Filter topics",
     "news.topic.all": "All",
     "news.topic.bi": "BI",
@@ -87,28 +97,43 @@ const translations: Record<Locale, TranslationMap> = {
     "timeline.education": "Education",
     "timeline.attijari.title": "Business Intelligence Intern",
     "timeline.attijari.period": "Jul. 2026 – Aug. 2026 (2 months · Data Team)",
-    "timeline.attijari.d1": "Completed a BI internship within Attijariwafa Bank’s Data Team for the Group General Audit Directorate (AGG), focused on designing the Global Audit Dashboard (TDB Audit Global).",
-    "timeline.attijari.d2": "Designed a Power BI star-schema data model from e-Audit system extracts, with Calendar, Status, Priority, and Organization dimensions",
-    "timeline.attijari.d3": "Translated complex business rules—criticality weighting, age-based target scoring, and regulatory deadline filtering—into DAX measures",
-    "timeline.attijari.d4": "Developed and iteratively validated 25+ performance indicators (KPIs) with the business team across combined internal and regulatory scopes",
-    "timeline.attijari.d5": "Used Power BI Desktop, Power Query, DAX, and Tabular Editor to industrialize measure creation",
-    "timeline.attijari.d6": "Skills: Power BI · DAX · Power Query · Data modeling · Business Intelligence",
+    "timeline.attijari.d1":
+      "Completed a BI internship within Attijariwafa Bank’s Data Team for the Group General Audit Directorate (AGG), focused on designing the Global Audit Dashboard (TDB Audit Global).",
+    "timeline.attijari.d2":
+      "Designed a Power BI star-schema data model from e-Audit system extracts, with Calendar, Status, Priority, and Organization dimensions",
+    "timeline.attijari.d3":
+      "Translated complex business rules—criticality weighting, age-based target scoring, and regulatory deadline filtering—into DAX measures",
+    "timeline.attijari.d4":
+      "Developed and iteratively validated 25+ performance indicators (KPIs) with the business team across combined internal and regulatory scopes",
+    "timeline.attijari.d5":
+      "Used Power BI Desktop, Power Query, DAX, and Tabular Editor to industrialize measure creation",
+    "timeline.attijari.d6":
+      "Skills: Power BI · DAX · Power Query · Data modeling · Business Intelligence",
     "timeline.internship.title": "Full Stack Developer Intern",
     "timeline.internship.period": "Jul. 2025 (1 month – Remote)",
-    "timeline.internship.d1": "Developed RESTful APIs with Spring Boot for announcements, uploads, and JWT authentication",
-    "timeline.internship.d2": "Created React/TypeScript interfaces for admin dashboards and analytics",
-    "timeline.internship.d3": "Stack: Spring Boot, React, TypeScript, Java, PostgreSQL, JWT, Tailwind CSS",
-    "timeline.engineering.title": "Engineering Program – Computer Science & Networks",
+    "timeline.internship.d1":
+      "Developed RESTful APIs with Spring Boot for announcements, uploads, and JWT authentication",
+    "timeline.internship.d2":
+      "Created React/TypeScript interfaces for admin dashboards and analytics",
+    "timeline.internship.d3":
+      "Stack: Spring Boot, React, TypeScript, Java, PostgreSQL, JWT, Tailwind CSS",
+    "timeline.engineering.title":
+      "Engineering Program – Computer Science & Networks",
     "timeline.engineering.period": "2022–2027 (4th year)",
-    "timeline.engineering.d1": "Specialization in Data Science and Artificial Intelligence",
-    "timeline.engineering.d2": "Key courses: Databases, Statistics, Python/Java, AI, Big Data, NoSQL, Linux",
-    "timeline.engineering.d3": "Actively seeking a PFA internship in Data Analysis or Data Science",
+    "timeline.engineering.d1":
+      "Specialization in Data Science and Artificial Intelligence",
+    "timeline.engineering.d2":
+      "Key courses: Databases, Statistics, Python/Java, AI, Big Data, NoSQL, Linux",
+    "timeline.engineering.d3":
+      "Actively seeking a PFA internship in Data Analysis or Data Science",
     "timeline.baccalaureate.title": "Physical Sciences Baccalaureate",
     "timeline.baccalaureate.period": "2019/2020",
-    "timeline.baccalaureate.d1": "General education in physical sciences and mathematics",
+    "timeline.baccalaureate.d1":
+      "General education in physical sciences and mathematics",
     "location.casablanca": "Casablanca, Morocco",
     "languages.title": "Languages",
-    "languages.subtitle": "Proficiency in several languages for effective communication",
+    "languages.subtitle":
+      "Proficiency in several languages for effective communication",
     "languages.proficiency": "Proficiency",
     "languages.arabic": "Arabic",
     "languages.french": "French",
@@ -125,7 +150,8 @@ const translations: Record<Locale, TranslationMap> = {
     "interests.travel": "Discovering new cultures and horizons",
     "game.badge": "Mini-game",
     "game.title": "Data Analyst Challenge",
-    "game.subtitle": "Test your instincts on statistics, visualization, and machine learning in five quick questions.",
+    "game.subtitle":
+      "Test your instincts on statistics, visualization, and machine learning in five quick questions.",
     "game.question": "Question",
     "game.of": "of",
     "game.score": "Score",
@@ -138,41 +164,51 @@ const translations: Record<Locale, TranslationMap> = {
     "game.resultTitle": "Your data instincts",
     "game.resultMessage": "You scored {score} out of {total}.",
     "game.playAgain": "Play again",
-    "game.q1": "Which measure is usually most robust when a dataset contains extreme outliers?",
+    "game.q1":
+      "Which measure is usually most robust when a dataset contains extreme outliers?",
     "game.q1.a": "Mean",
     "game.q1.b": "Median",
     "game.q1.c": "Range",
     "game.q1.d": "Variance",
-    "game.q1.explanation": "The median is less affected by extreme values than the mean.",
-    "game.q2": "Which chart is usually best for comparing values across categories?",
+    "game.q1.explanation":
+      "The median is less affected by extreme values than the mean.",
+    "game.q2":
+      "Which chart is usually best for comparing values across categories?",
     "game.q2.a": "Bar chart",
     "game.q2.b": "Scatter plot",
     "game.q2.c": "Histogram",
     "game.q2.d": "Box plot",
-    "game.q2.explanation": "Bars make differences between discrete categories easy to compare.",
+    "game.q2.explanation":
+      "Bars make differences between discrete categories easy to compare.",
     "game.q3": "What does correlation describe?",
     "game.q3.a": "A model's training speed",
     "game.q3.b": "The number of missing values",
     "game.q3.c": "The strength and direction of a relationship",
     "game.q3.d": "The size of a dataset",
-    "game.q3.explanation": "Correlation summarizes how two variables move together, not whether one causes the other.",
-    "game.q4": "What is a sensible first step before training a machine-learning model?",
+    "game.q3.explanation":
+      "Correlation summarizes how two variables move together, not whether one causes the other.",
+    "game.q4":
+      "What is a sensible first step before training a machine-learning model?",
     "game.q4.a": "Increase the learning rate",
     "game.q4.b": "Deploy the model",
     "game.q4.c": "Remove the test set",
     "game.q4.d": "Inspect and clean the data",
-    "game.q4.explanation": "Understanding quality, missing values, and leakage protects the whole modeling process.",
-    "game.q5": "Which metric is often more informative than accuracy for imbalanced classes?",
+    "game.q4.explanation":
+      "Understanding quality, missing values, and leakage protects the whole modeling process.",
+    "game.q5":
+      "Which metric is often more informative than accuracy for imbalanced classes?",
     "game.q5.a": "The number of features",
     "game.q5.b": "F1 score",
     "game.q5.c": "Training time",
     "game.q5.d": "Image resolution",
-    "game.q5.explanation": "F1 balances precision and recall, which is useful when one class is much rarer.",
+    "game.q5.explanation":
+      "F1 balances precision and recall, which is useful when one class is much rarer.",
     "contact.title": "Contact",
     "contact.email": "Email",
     "contact.phone": "Phone",
     "contact.location": "Location",
-    "contact.subtitle": "Have an internship opportunity or a question? Feel free to get in touch.",
+    "contact.subtitle":
+      "Have an internship opportunity or a question? Feel free to get in touch.",
     "contact.information": "Contact information",
     "contact.social": "Social networks",
     "contact.send": "Send a message",
@@ -219,27 +255,33 @@ const translations: Record<Locale, TranslationMap> = {
     "nav.contact": "Contact",
     "header.openMenu": "Ouvrir le menu",
     "header.closeMenu": "Fermer le menu",
-    "header.download": "Télécharger le CV",
+    "header.download": "Aperçu du CV",
     "hero.title": "Ingénierie AI & Data Science",
     "hero.availability": "Disponible pour un stage PFE",
     "hero.contact": "Me contacter",
-    "hero.description": "Étudiant en 5ème année d'ingénierie informatique à EMSI Casablanca, spécialisé en Data Science et Intelligence Artificielle. À la recherche d'un stage PFE en Data Analysis ou Data Science.",
+    "hero.description":
+      "Étudiant en 5ème année d'ingénierie informatique à EMSI Casablanca, spécialisé en Data Science et Intelligence Artificielle. À la recherche d'un stage PFE en Data Analysis ou Data Science.",
     "hero.location": "Sidi Ma'rouf, Casablanca, Maroc",
-    "hero.download": "Télécharger le CV",
+    "hero.download": "Aperçu du CV",
     "hero.projects": "Voir mes projets",
     "hero.scroll": "Défiler pour découvrir",
     "about.title": "À propos",
     "about.subtitle": "Découvrez mon parcours et mes motivations",
-    "about.p1": "Je suis Yassine WALID, un étudiant passionné en ingénierie informatique à EMSI Casablanca, actuellement en 5ème année de mon cycle d'ingénieur. Ma spécialisation porte sur la Data Science et l'Intelligence Artificielle, deux domaines qui façonnent l'avenir de la technologie.",
-    "about.p2": "Célibataire, 23 ans, basé à Sidi Ma'rouf à Casablanca, je suis un professionnel en herbe qui combine une solide formation théorique avec une expérience pratique concrète. Mon parcours m'a permis de maîtriser les technologies modernes et les méthodologies agiles.",
-    "about.p3": "En juillet 2025, j'ai complété un stage de 1 mois en tant que Full Stack Developer chez xHub, au Technopark de Casablanca. Pendant cette expérience, j'ai contribué au développement de la plateforme bancaire numérique X-Bank, en travaillant sur des APIs RESTful robustes avec Spring Boot et des interfaces réactives avec React et TypeScript.",
-    "about.p4": "Actuellement, je recherche un stage PFE (Projet de Fin d'Année) en Data Analysis ou Data Science pour approfondir mes compétences et contribuer à des projets d'impact. Je suis motivé par les défis complexes et l'apprentissage continu.",
+    "about.p1":
+      "Je suis Yassine WALID, un étudiant passionné en ingénierie informatique à EMSI Casablanca, actuellement en 5ème année de mon cycle d'ingénieur. Ma spécialisation porte sur la Data Science et l'Intelligence Artificielle, deux domaines qui façonnent l'avenir de la technologie.",
+    "about.p2":
+      "Célibataire, 23 ans, basé à Sidi Ma'rouf à Casablanca, je suis un professionnel en herbe qui combine une solide formation théorique avec une expérience pratique concrète. Mon parcours m'a permis de maîtriser les technologies modernes et les méthodologies agiles.",
+    "about.p3":
+      "En juillet 2025, j'ai complété un stage de 1 mois en tant que Full Stack Developer chez xHub, au Technopark de Casablanca. Pendant cette expérience, j'ai contribué au développement de la plateforme bancaire numérique X-Bank, en travaillant sur des APIs RESTful robustes avec Spring Boot et des interfaces réactives avec React et TypeScript.",
+    "about.p4":
+      "Actuellement, je recherche un stage PFE (Projet de Fin d'Année) en Data Analysis ou Data Science pour approfondir mes compétences et contribuer à des projets d'impact. Je suis motivé par les défis complexes et l'apprentissage continu.",
     "about.stats.study": "Années d'étude",
     "about.stats.projects": "Projets complétés",
     "about.stats.languages": "Langues parlées",
     "about.stats.technologies": "Technologies maîtrisées",
     "skills.title": "Compétences",
-    "skills.subtitle": "Maîtrise des technologies modernes en Data Science, développement et ingénierie",
+    "skills.subtitle":
+      "Maîtrise des technologies modernes en Data Science, développement et ingénierie",
     "skills.category.databases": "Bases de données",
     "skills.category.development": "Développement",
     "skills.category.tools": "Outils & Plateformes",
@@ -251,9 +293,11 @@ const translations: Record<Locale, TranslationMap> = {
     "skills.api": "APIs RESTful",
     "skills.agile": "Agile/Scrum",
     "projects.title": "Projets",
-    "projects.subtitle": "Découvrez mes projets en Data Science, développement fullstack et ingénierie",
+    "projects.subtitle":
+      "Découvrez mes projets en Data Science, développement fullstack et ingénierie",
     "projects.featured": "Projet en vedette",
-    "projects.featuredDescription": "Application bancaire fullstack avec APIs RESTful Spring Boot et interfaces React/TypeScript. Gestion des annonces, uploads, authentification JWT, dashboards admin et analytics.",
+    "projects.featuredDescription":
+      "Application bancaire fullstack avec APIs RESTful Spring Boot et interfaces React/TypeScript. Gestion des annonces, uploads, authentification JWT, dashboards admin et analytics.",
     "projects.code": "Voir le code",
     "projects.demo": "Démo",
     "projects.recent": "Projets récents",
@@ -262,14 +306,17 @@ const translations: Record<Locale, TranslationMap> = {
     "projects.none": "Aucun projet trouvé",
     "projects.viewAll": "Voir tous les projets sur GitHub",
     "news.title": "Actualités Data Analysis",
-    "news.subtitle": "Les dernières histoires de la communauté data, IA et développement.",
+    "news.subtitle":
+      "Les dernières histoires de la communauté data, IA et développement.",
     "news.refresh": "Actualiser",
     "news.loading": "Chargement des dernières actualités",
     "news.error": "Le fil d'actualités est temporairement indisponible.",
     "news.retry": "Réessayer",
-    "news.empty": "Aucune actualité récente ne correspond à la recherche data science.",
+    "news.empty":
+      "Aucune actualité récente ne correspond à la recherche data science.",
     "news.openSource": "Ouvrir la recherche Hacker News",
-    "news.sourceNote": "Les actualités sont récupérées depuis Hacker News Search powered by Algolia.",
+    "news.sourceNote":
+      "Les actualités sont récupérées depuis Hacker News Search powered by Algolia.",
     "news.filterLabel": "Filtrer les thèmes",
     "news.topic.all": "Toutes",
     "news.topic.bi": "BI",
@@ -282,28 +329,42 @@ const translations: Record<Locale, TranslationMap> = {
     "timeline.education": "Formation",
     "timeline.attijari.title": "Stagiaire Business Intelligence (BI)",
     "timeline.attijari.period": "Juil. 2026 – Août 2026 (2 mois · Équipe Data)",
-    "timeline.attijari.d1": "Stage au sein de l'équipe Data d'Attijariwafa Bank, pour le compte de la Direction Audit Général Groupe (AGG), portant sur la conception d'un tableau de bord de pilotage des recommandations d'audit (TDB Audit Global).",
-    "timeline.attijari.d2": "Conception d'un modèle de données en schéma en étoile dans Power BI à partir d'extractions du système e-Audit, avec les dimensions Calendrier, Statut, Priorité et Organisation",
-    "timeline.attijari.d3": "Traduction de règles de gestion complexes — pondération par criticité, barème d'objectifs selon l'ancienneté et filtre du délai réglementaire — en mesures DAX",
-    "timeline.attijari.d4": "Développement et validation itérative de plus de 25 indicateurs de performance (KPI) avec l'équipe métier, sur deux périmètres combinés (interne et réglementaire)",
-    "timeline.attijari.d5": "Utilisation de Power BI Desktop, Power Query, DAX et Tabular Editor pour industrialiser la création des mesures",
-    "timeline.attijari.d6": "Compétences : Power BI · DAX · Power Query · Modélisation de données · Business Intelligence",
+    "timeline.attijari.d1":
+      "Stage au sein de l'équipe Data d'Attijariwafa Bank, pour le compte de la Direction Audit Général Groupe (AGG), portant sur la conception d'un tableau de bord de pilotage des recommandations d'audit (TDB Audit Global).",
+    "timeline.attijari.d2":
+      "Conception d'un modèle de données en schéma en étoile dans Power BI à partir d'extractions du système e-Audit, avec les dimensions Calendrier, Statut, Priorité et Organisation",
+    "timeline.attijari.d3":
+      "Traduction de règles de gestion complexes — pondération par criticité, barème d'objectifs selon l'ancienneté et filtre du délai réglementaire — en mesures DAX",
+    "timeline.attijari.d4":
+      "Développement et validation itérative de plus de 25 indicateurs de performance (KPI) avec l'équipe métier, sur deux périmètres combinés (interne et réglementaire)",
+    "timeline.attijari.d5":
+      "Utilisation de Power BI Desktop, Power Query, DAX et Tabular Editor pour industrialiser la création des mesures",
+    "timeline.attijari.d6":
+      "Compétences : Power BI · DAX · Power Query · Modélisation de données · Business Intelligence",
     "timeline.internship.title": "Stagiaire Full Stack Developer",
     "timeline.internship.period": "Juil. 2025 (1 mois – Remote)",
-    "timeline.internship.d1": "Développement d'APIs RESTful avec Spring Boot pour la gestion des annonces, uploads et authentification JWT",
-    "timeline.internship.d2": "Création d'interfaces React/TypeScript pour dashboards admin et analytics",
-    "timeline.internship.d3": "Stack: Spring Boot, React, TypeScript, Java, PostgreSQL, JWT, Tailwind CSS",
+    "timeline.internship.d1":
+      "Développement d'APIs RESTful avec Spring Boot pour la gestion des annonces, uploads et authentification JWT",
+    "timeline.internship.d2":
+      "Création d'interfaces React/TypeScript pour dashboards admin et analytics",
+    "timeline.internship.d3":
+      "Stack: Spring Boot, React, TypeScript, Java, PostgreSQL, JWT, Tailwind CSS",
     "timeline.engineering.title": "Cycle Ingénieur – Informatique et Réseaux",
     "timeline.engineering.period": "2022–2027 (4ème année)",
-    "timeline.engineering.d1": "Spécialisation en Data Science et Intelligence Artificielle",
-    "timeline.engineering.d2": "Cours clés: Bases de données, Statistiques, Python/Java, IA, Big Data, NoSQL, Linux",
-    "timeline.engineering.d3": "Recherche active d'un stage PFA en Data Analysis / Data Science",
+    "timeline.engineering.d1":
+      "Spécialisation en Data Science et Intelligence Artificielle",
+    "timeline.engineering.d2":
+      "Cours clés: Bases de données, Statistiques, Python/Java, IA, Big Data, NoSQL, Linux",
+    "timeline.engineering.d3":
+      "Recherche active d'un stage PFA en Data Analysis / Data Science",
     "timeline.baccalaureate.title": "Baccalauréat Sciences Physiques",
     "timeline.baccalaureate.period": "2019/2020",
-    "timeline.baccalaureate.d1": "Formation générale en sciences physiques et mathématiques",
+    "timeline.baccalaureate.d1":
+      "Formation générale en sciences physiques et mathématiques",
     "location.casablanca": "Casablanca, Maroc",
     "languages.title": "Langues",
-    "languages.subtitle": "Maîtrise de plusieurs langues pour une communication efficace",
+    "languages.subtitle":
+      "Maîtrise de plusieurs langues pour une communication efficace",
     "languages.proficiency": "Niveau",
     "languages.arabic": "Arabe",
     "languages.french": "Français",
@@ -320,7 +381,8 @@ const translations: Record<Locale, TranslationMap> = {
     "interests.travel": "Découverte de nouvelles cultures et horizons",
     "game.badge": "Mini-jeu",
     "game.title": "Défi Data Analyst",
-    "game.subtitle": "Testez vos réflexes en statistiques, visualisation et machine learning avec cinq questions rapides.",
+    "game.subtitle":
+      "Testez vos réflexes en statistiques, visualisation et machine learning avec cinq questions rapides.",
     "game.question": "Question",
     "game.of": "sur",
     "game.score": "Score",
@@ -333,41 +395,51 @@ const translations: Record<Locale, TranslationMap> = {
     "game.resultTitle": "Vos réflexes data",
     "game.resultMessage": "Vous avez obtenu {score} points sur {total}.",
     "game.playAgain": "Rejouer",
-    "game.q1": "Quelle mesure est généralement la plus robuste lorsqu'un jeu de données contient des valeurs extrêmes ?",
+    "game.q1":
+      "Quelle mesure est généralement la plus robuste lorsqu'un jeu de données contient des valeurs extrêmes ?",
     "game.q1.a": "Moyenne",
     "game.q1.b": "Médiane",
     "game.q1.c": "Étendue",
     "game.q1.d": "Variance",
-    "game.q1.explanation": "La médiane est moins influencée par les valeurs extrêmes que la moyenne.",
-    "game.q2": "Quel graphique est généralement le meilleur pour comparer des valeurs entre catégories ?",
+    "game.q1.explanation":
+      "La médiane est moins influencée par les valeurs extrêmes que la moyenne.",
+    "game.q2":
+      "Quel graphique est généralement le meilleur pour comparer des valeurs entre catégories ?",
     "game.q2.a": "Diagramme en barres",
     "game.q2.b": "Nuage de points",
     "game.q2.c": "Histogramme",
     "game.q2.d": "Boîte à moustaches",
-    "game.q2.explanation": "Les barres rendent les différences entre catégories discrètes faciles à comparer.",
+    "game.q2.explanation":
+      "Les barres rendent les différences entre catégories discrètes faciles à comparer.",
     "game.q3": "Que décrit la corrélation ?",
     "game.q3.a": "La vitesse d'entraînement d'un modèle",
     "game.q3.b": "Le nombre de valeurs manquantes",
     "game.q3.c": "La force et la direction d'une relation",
     "game.q3.d": "La taille d'un jeu de données",
-    "game.q3.explanation": "La corrélation résume la façon dont deux variables évoluent ensemble, sans prouver la causalité.",
-    "game.q4": "Quelle est une première étape pertinente avant d'entraîner un modèle de machine learning ?",
+    "game.q3.explanation":
+      "La corrélation résume la façon dont deux variables évoluent ensemble, sans prouver la causalité.",
+    "game.q4":
+      "Quelle est une première étape pertinente avant d'entraîner un modèle de machine learning ?",
     "game.q4.a": "Augmenter le taux d'apprentissage",
     "game.q4.b": "Déployer le modèle",
     "game.q4.c": "Supprimer le jeu de test",
     "game.q4.d": "Inspecter et nettoyer les données",
-    "game.q4.explanation": "Comprendre la qualité, les valeurs manquantes et les fuites protège tout le processus de modélisation.",
-    "game.q5": "Quelle métrique est souvent plus informative que l'accuracy pour des classes déséquilibrées ?",
+    "game.q4.explanation":
+      "Comprendre la qualité, les valeurs manquantes et les fuites protège tout le processus de modélisation.",
+    "game.q5":
+      "Quelle métrique est souvent plus informative que l'accuracy pour des classes déséquilibrées ?",
     "game.q5.a": "Le nombre de variables",
     "game.q5.b": "Le score F1",
     "game.q5.c": "Le temps d'entraînement",
     "game.q5.d": "La résolution de l'image",
-    "game.q5.explanation": "Le score F1 équilibre la précision et le rappel, ce qui est utile lorsqu'une classe est beaucoup plus rare.",
+    "game.q5.explanation":
+      "Le score F1 équilibre la précision et le rappel, ce qui est utile lorsqu'une classe est beaucoup plus rare.",
     "contact.title": "Contact",
     "contact.email": "Email",
     "contact.phone": "Téléphone",
     "contact.location": "Localisation",
-    "contact.subtitle": "Vous avez une opportunité de stage ou une question ? N'hésitez pas à me contacter.",
+    "contact.subtitle":
+      "Vous avez une opportunité de stage ou une question ? N'hésitez pas à me contacter.",
     "contact.information": "Informations",
     "contact.social": "Réseaux sociaux",
     "contact.send": "Envoyer un message",
@@ -414,27 +486,33 @@ const translations: Record<Locale, TranslationMap> = {
     "nav.contact": "تواصل معي",
     "header.openMenu": "فتح القائمة",
     "header.closeMenu": "إغلاق القائمة",
-    "header.download": "تحميل السيرة الذاتية",
+    "header.download": "معاينة السيرة الذاتية",
     "hero.title": "هندسة الذكاء الاصطناعي وعلوم البيانات",
     "hero.availability": "متاح لفرص تدريب PFE",
     "hero.contact": "تواصل معي",
-    "hero.description": "طالب في السنة الخامسة هندسة معلوماتية في EMSI الدار البيضاء، متخصص في علوم البيانات والذكاء الاصطناعي. أبحث حاليًا عن تدريب PFE في تحليل البيانات أو علوم البيانات.",
+    "hero.description":
+      "طالب في السنة الخامسة هندسة معلوماتية في EMSI الدار البيضاء، متخصص في علوم البيانات والذكاء الاصطناعي. أبحث حاليًا عن تدريب PFE في تحليل البيانات أو علوم البيانات.",
     "hero.location": "سيدي معروف، الدار البيضاء، المغرب",
-    "hero.download": "تحميل السيرة الذاتية",
+    "hero.download": "معاينة السيرة الذاتية",
     "hero.projects": "استعرض مشاريعي",
     "hero.scroll": "مرر لاكتشاف المزيد",
     "about.title": "نبذة عني",
     "about.subtitle": "اكتشف مساري ودوافعي",
-    "about.p1": "أنا ياسين وليد، طالب شغوف في هندسة المعلوماتية في EMSI الدار البيضاء، وأدرس حاليًا في السنة الخامسة من مساري الهندسي. أختص في علوم البيانات والذكاء الاصطناعي، وهما مجالان يصنعان مستقبل التكنولوجيا.",
-    "about.p2": "أبلغ من العمر 23 سنة وأقيم في سيدي معروف بالدار البيضاء. أنا مهندس مستقبلي أجمع بين تكوين نظري قوي وتجربة عملية ملموسة، وقد ساعدني مساري على إتقان التقنيات الحديثة والمنهجيات الرشيقة.",
-    "about.p3": "في يوليوز 2025، أنجزت تدريبًا لمدة شهر واحد كمطور Full Stack لدى xHub في تكنوبارك الدار البيضاء. ساهمت خلال هذه التجربة في تطوير منصة X-Bank البنكية الرقمية، من خلال العمل على REST APIs قوية باستخدام Spring Boot وواجهات React وTypeScript تفاعلية.",
-    "about.p4": "أبحث حاليًا عن تدريب PFA في تحليل البيانات أو علوم البيانات لتعميق مهاراتي والمساهمة في مشاريع ذات أثر. تحفزني التحديات المعقدة والتعلم المستمر.",
+    "about.p1":
+      "أنا ياسين وليد، طالب شغوف في هندسة المعلوماتية في EMSI الدار البيضاء، وأدرس حاليًا في السنة الخامسة من مساري الهندسي. أختص في علوم البيانات والذكاء الاصطناعي، وهما مجالان يصنعان مستقبل التكنولوجيا.",
+    "about.p2":
+      "أبلغ من العمر 23 سنة وأقيم في سيدي معروف بالدار البيضاء. أنا مهندس مستقبلي أجمع بين تكوين نظري قوي وتجربة عملية ملموسة، وقد ساعدني مساري على إتقان التقنيات الحديثة والمنهجيات الرشيقة.",
+    "about.p3":
+      "في يوليوز 2025، أنجزت تدريبًا لمدة شهر واحد كمطور Full Stack لدى xHub في تكنوبارك الدار البيضاء. ساهمت خلال هذه التجربة في تطوير منصة X-Bank البنكية الرقمية، من خلال العمل على REST APIs قوية باستخدام Spring Boot وواجهات React وTypeScript تفاعلية.",
+    "about.p4":
+      "أبحث حاليًا عن تدريب PFA في تحليل البيانات أو علوم البيانات لتعميق مهاراتي والمساهمة في مشاريع ذات أثر. تحفزني التحديات المعقدة والتعلم المستمر.",
     "about.stats.study": "سنوات الدراسة",
     "about.stats.projects": "المشاريع المنجزة",
     "about.stats.languages": "اللغات المتحدث بها",
     "about.stats.technologies": "التقنيات المتقنة",
     "skills.title": "المهارات",
-    "skills.subtitle": "إتقان التقنيات الحديثة في علوم البيانات والتطوير والهندسة",
+    "skills.subtitle":
+      "إتقان التقنيات الحديثة في علوم البيانات والتطوير والهندسة",
     "skills.category.databases": "قواعد البيانات",
     "skills.category.development": "التطوير",
     "skills.category.tools": "الأدوات والمنصات",
@@ -446,9 +524,11 @@ const translations: Record<Locale, TranslationMap> = {
     "skills.api": "RESTful APIs",
     "skills.agile": "Agile/Scrum",
     "projects.title": "المشاريع",
-    "projects.subtitle": "اكتشف مشاريعي في علوم البيانات والتطوير الكامل والهندسة",
+    "projects.subtitle":
+      "اكتشف مشاريعي في علوم البيانات والتطوير الكامل والهندسة",
     "projects.featured": "مشروع مميز",
-    "projects.featuredDescription": "تطبيق مصرفي Full Stack بواجهات Spring Boot REST وواجهات React/TypeScript. يتضمن إدارة الإعلانات والتحميلات ومصادقة JWT ولوحات تحكم للمشرف وتحليلات.",
+    "projects.featuredDescription":
+      "تطبيق مصرفي Full Stack بواجهات Spring Boot REST وواجهات React/TypeScript. يتضمن إدارة الإعلانات والتحميلات ومصادقة JWT ولوحات تحكم للمشرف وتحليلات.",
     "projects.code": "عرض الكود",
     "projects.demo": "عرض تجريبي",
     "projects.recent": "المشاريع الأخيرة",
@@ -457,14 +537,16 @@ const translations: Record<Locale, TranslationMap> = {
     "projects.none": "لم يتم العثور على مشاريع",
     "projects.viewAll": "عرض جميع المشاريع على GitHub",
     "news.title": "أخبار تحليل البيانات",
-    "news.subtitle": "أحدث القصص من مجتمع البيانات والذكاء الاصطناعي والمطورين.",
+    "news.subtitle":
+      "أحدث القصص من مجتمع البيانات والذكاء الاصطناعي والمطورين.",
     "news.refresh": "تحديث",
     "news.loading": "جار تحميل أحدث القصص",
     "news.error": "خدمة الأخبار المباشرة غير متاحة مؤقتًا.",
     "news.retry": "حاول مرة أخرى",
     "news.empty": "لم يتم العثور على قصص حديثة في بحث علوم البيانات.",
     "news.openSource": "فتح بحث Hacker News",
-    "news.sourceNote": "يتم جلب الأخبار مباشرة من Hacker News Search powered by Algolia.",
+    "news.sourceNote":
+      "يتم جلب الأخبار مباشرة من Hacker News Search powered by Algolia.",
     "news.filterLabel": "تصفية المواضيع",
     "news.topic.all": "الكل",
     "news.topic.bi": "ذكاء الأعمال",
@@ -476,23 +558,35 @@ const translations: Record<Locale, TranslationMap> = {
     "timeline.experience": "الخبرة",
     "timeline.education": "التعليم",
     "timeline.attijari.title": "متدرب في ذكاء الأعمال (BI)",
-    "timeline.attijari.period": "يوليوز 2026 – غشت 2026 (شهران · فريق البيانات)",
-    "timeline.attijari.d1": "تدريب ضمن فريق البيانات في Attijariwafa Bank لفائدة مديرية التدقيق العام للمجموعة (AGG)، ركز على تصميم لوحة قيادة لتتبع توصيات التدقيق (TDB Audit Global).",
-    "timeline.attijari.d2": "تصميم نموذج بيانات بمخطط نجمي في Power BI انطلاقًا من مستخرجات نظام e-Audit، مع أبعاد التقويم والحالة والأولوية والتنظيم",
-    "timeline.attijari.d3": "ترجمة قواعد أعمال معقدة — ترجيح حسب درجة الأهمية، سلم أهداف حسب الأقدمية، ومرشح للمهلة التنظيمية — إلى مقاييس DAX",
-    "timeline.attijari.d4": "تطوير والتحقق بشكل تكراري من أكثر من 25 مؤشر أداء (KPI) مع فريق الأعمال ضمن نطاقين مدمجين: الداخلي والتنظيمي",
-    "timeline.attijari.d5": "استخدام Power BI Desktop وPower Query وDAX وTabular Editor لتوحيد وأتمتة إنشاء المقاييس",
-    "timeline.attijari.d6": "المهارات: Power BI · DAX · Power Query · نمذجة البيانات · ذكاء الأعمال",
+    "timeline.attijari.period":
+      "يوليوز 2026 – غشت 2026 (شهران · فريق البيانات)",
+    "timeline.attijari.d1":
+      "تدريب ضمن فريق البيانات في Attijariwafa Bank لفائدة مديرية التدقيق العام للمجموعة (AGG)، ركز على تصميم لوحة قيادة لتتبع توصيات التدقيق (TDB Audit Global).",
+    "timeline.attijari.d2":
+      "تصميم نموذج بيانات بمخطط نجمي في Power BI انطلاقًا من مستخرجات نظام e-Audit، مع أبعاد التقويم والحالة والأولوية والتنظيم",
+    "timeline.attijari.d3":
+      "ترجمة قواعد أعمال معقدة — ترجيح حسب درجة الأهمية، سلم أهداف حسب الأقدمية، ومرشح للمهلة التنظيمية — إلى مقاييس DAX",
+    "timeline.attijari.d4":
+      "تطوير والتحقق بشكل تكراري من أكثر من 25 مؤشر أداء (KPI) مع فريق الأعمال ضمن نطاقين مدمجين: الداخلي والتنظيمي",
+    "timeline.attijari.d5":
+      "استخدام Power BI Desktop وPower Query وDAX وTabular Editor لتوحيد وأتمتة إنشاء المقاييس",
+    "timeline.attijari.d6":
+      "المهارات: Power BI · DAX · Power Query · نمذجة البيانات · ذكاء الأعمال",
     "timeline.internship.title": "متدرب Full Stack Developer",
     "timeline.internship.period": "يوليوز 2025 (شهر واحد – عن بعد)",
-    "timeline.internship.d1": "تطوير RESTful APIs باستخدام Spring Boot لإدارة الإعلانات والتحميلات ومصادقة JWT",
-    "timeline.internship.d2": "إنشاء واجهات React/TypeScript للوحات تحكم المشرف والتحليلات",
-    "timeline.internship.d3": "التقنيات: Spring Boot وReact وTypeScript وJava وPostgreSQL وJWT وTailwind CSS",
+    "timeline.internship.d1":
+      "تطوير RESTful APIs باستخدام Spring Boot لإدارة الإعلانات والتحميلات ومصادقة JWT",
+    "timeline.internship.d2":
+      "إنشاء واجهات React/TypeScript للوحات تحكم المشرف والتحليلات",
+    "timeline.internship.d3":
+      "التقنيات: Spring Boot وReact وTypeScript وJava وPostgreSQL وJWT وTailwind CSS",
     "timeline.engineering.title": "مسار الهندسة – المعلوميات والشبكات",
     "timeline.engineering.period": "2022–2027 (السنة الرابعة)",
     "timeline.engineering.d1": "تخصص في علوم البيانات والذكاء الاصطناعي",
-    "timeline.engineering.d2": "المواد الأساسية: قواعد البيانات والإحصاء وPython/Java والذكاء الاصطناعي والبيانات الضخمة وNoSQL وLinux",
-    "timeline.engineering.d3": "أبحث بنشاط عن تدريب PFA في تحليل البيانات أو علوم البيانات",
+    "timeline.engineering.d2":
+      "المواد الأساسية: قواعد البيانات والإحصاء وPython/Java والذكاء الاصطناعي والبيانات الضخمة وNoSQL وLinux",
+    "timeline.engineering.d3":
+      "أبحث بنشاط عن تدريب PFA في تحليل البيانات أو علوم البيانات",
     "timeline.baccalaureate.title": "بكالوريا العلوم الفيزيائية",
     "timeline.baccalaureate.period": "2019/2020",
     "timeline.baccalaureate.d1": "تكوين عام في العلوم الفيزيائية والرياضيات",
@@ -515,7 +609,8 @@ const translations: Record<Locale, TranslationMap> = {
     "interests.travel": "اكتشاف ثقافات وآفاق جديدة",
     "game.badge": "لعبة صغيرة",
     "game.title": "تحدي محلل البيانات",
-    "game.subtitle": "اختبر حدسك في الإحصاء والتصور وتعلم الآلة عبر خمسة أسئلة سريعة.",
+    "game.subtitle":
+      "اختبر حدسك في الإحصاء والتصور وتعلم الآلة عبر خمسة أسئلة سريعة.",
     "game.question": "السؤال",
     "game.of": "من",
     "game.score": "النتيجة",
@@ -528,36 +623,43 @@ const translations: Record<Locale, TranslationMap> = {
     "game.resultTitle": "حدسك في البيانات",
     "game.resultMessage": "حصلت على {score} من {total}.",
     "game.playAgain": "العب مرة أخرى",
-    "game.q1": "أي مقياس يكون عادة أكثر مقاومة عندما تحتوي مجموعة البيانات على قيم متطرفة؟",
+    "game.q1":
+      "أي مقياس يكون عادة أكثر مقاومة عندما تحتوي مجموعة البيانات على قيم متطرفة؟",
     "game.q1.a": "المتوسط الحسابي",
     "game.q1.b": "الوسيط",
     "game.q1.c": "المدى",
     "game.q1.d": "التباين",
-    "game.q1.explanation": "الوسيط أقل تأثرًا بالقيم المتطرفة من المتوسط الحسابي.",
+    "game.q1.explanation":
+      "الوسيط أقل تأثرًا بالقيم المتطرفة من المتوسط الحسابي.",
     "game.q2": "أي رسم بياني هو الأنسب عادة لمقارنة القيم بين الفئات؟",
     "game.q2.a": "مخطط أعمدة",
     "game.q2.b": "مخطط مبعثر",
     "game.q2.c": "مدرج تكراري",
     "game.q2.d": "مخطط صندوقي",
-    "game.q2.explanation": "تجعل الأعمدة مقارنة الفروق بين الفئات المنفصلة سهلة.",
+    "game.q2.explanation":
+      "تجعل الأعمدة مقارنة الفروق بين الفئات المنفصلة سهلة.",
     "game.q3": "ماذا تصف العلاقة الارتباطية؟",
     "game.q3.a": "سرعة تدريب النموذج",
     "game.q3.b": "عدد القيم المفقودة",
     "game.q3.c": "قوة واتجاه العلاقة",
     "game.q3.d": "حجم مجموعة البيانات",
-    "game.q3.explanation": "تلخص العلاقة الارتباطية كيفية تحرك متغيرين معًا، لكنها لا تثبت السببية.",
+    "game.q3.explanation":
+      "تلخص العلاقة الارتباطية كيفية تحرك متغيرين معًا، لكنها لا تثبت السببية.",
     "game.q4": "ما الخطوة الأولى المناسبة قبل تدريب نموذج تعلم آلي؟",
     "game.q4.a": "زيادة معدل التعلم",
     "game.q4.b": "نشر النموذج",
     "game.q4.c": "حذف مجموعة الاختبار",
     "game.q4.d": "فحص البيانات وتنظيفها",
-    "game.q4.explanation": "فهم الجودة والقيم المفقودة وتسرب البيانات يحمي عملية بناء النموذج بأكملها.",
-    "game.q5": "أي مقياس يكون غالبًا أكثر إفادة من الدقة عند وجود فئات غير متوازنة؟",
+    "game.q4.explanation":
+      "فهم الجودة والقيم المفقودة وتسرب البيانات يحمي عملية بناء النموذج بأكملها.",
+    "game.q5":
+      "أي مقياس يكون غالبًا أكثر إفادة من الدقة عند وجود فئات غير متوازنة؟",
     "game.q5.a": "عدد الميزات",
     "game.q5.b": "درجة F1",
     "game.q5.c": "وقت التدريب",
     "game.q5.d": "دقة الصورة",
-    "game.q5.explanation": "توازن درجة F1 بين الدقة والاستدعاء، وهو مفيد عندما تكون إحدى الفئات أندر بكثير.",
+    "game.q5.explanation":
+      "توازن درجة F1 بين الدقة والاستدعاء، وهو مفيد عندما تكون إحدى الفئات أندر بكثير.",
     "contact.title": "تواصل معي",
     "contact.email": "البريد الإلكتروني",
     "contact.phone": "الهاتف",
@@ -577,7 +679,8 @@ const translations: Record<Locale, TranslationMap> = {
     "contact.sending": "فتح Gmail...",
     "contact.validation.required": "يرجى ملء جميع الحقول",
     "contact.validation.email": "يرجى إدخال بريد إلكتروني صالح",
-    "contact.gmailNote": "سيفتح هذا النموذج نافذة إنشاء رسالة Gmail مملوءة مسبقًا.",
+    "contact.gmailNote":
+      "سيفتح هذا النموذج نافذة إنشاء رسالة Gmail مملوءة مسبقًا.",
     "contact.copyEmail": "نسخ البريد الإلكتروني",
     "contact.emailCopied": "تم نسخ البريد الإلكتروني",
     "contact.copyError": "تعذر نسخ عنوان البريد الإلكتروني",
@@ -599,13 +702,17 @@ interface LanguageContextValue {
   languageOptions: Array<{ value: Locale; label: string }>;
 }
 
-const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextValue | undefined>(
+  undefined
+);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocale] = useState<Locale>(() => {
     if (typeof window === "undefined") return "en";
     const stored = window.localStorage.getItem("portfolio-locale");
-    return stored === "fr" || stored === "ar" || stored === "en" ? stored : "en";
+    return stored === "fr" || stored === "ar" || stored === "en"
+      ? stored
+      : "en";
   });
 
   useEffect(() => {
@@ -615,18 +722,26 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     window.localStorage.setItem("portfolio-locale", locale);
   }, [locale]);
 
-  const value = useMemo<LanguageContextValue>(() => ({
-    locale,
-    setLocale,
-    t: (key: string) => translations[locale][key] ?? translations.en[key] ?? key,
-    languageOptions: [
-      { value: "en", label: translations[locale]["language.en"] },
-      { value: "fr", label: translations[locale]["language.fr"] },
-      { value: "ar", label: translations[locale]["language.ar"] },
-    ],
-  }), [locale]);
+  const value = useMemo<LanguageContextValue>(
+    () => ({
+      locale,
+      setLocale,
+      t: (key: string) =>
+        translations[locale][key] ?? translations.en[key] ?? key,
+      languageOptions: [
+        { value: "en", label: translations[locale]["language.en"] },
+        { value: "fr", label: translations[locale]["language.fr"] },
+        { value: "ar", label: translations[locale]["language.ar"] },
+      ],
+    }),
+    [locale]
+  );
 
-  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
+  return (
+    <LanguageContext.Provider value={value}>
+      {children}
+    </LanguageContext.Provider>
+  );
 }
 
 export function useLanguage() {

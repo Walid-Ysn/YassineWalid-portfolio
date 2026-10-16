@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useLanguage, type Locale } from "@/contexts/LanguageContext";
 import { useTheme } from "@/contexts/ThemeContext";
-import { getCvDownload } from "@/lib/cv";
+import { getCvPreview } from "@/lib/cv";
 import { trackEvent } from "@/lib/analytics";
 
 export default function Header() {
@@ -22,8 +22,9 @@ export default function Header() {
     { label: t("nav.contact"), href: "#contact" },
   ];
 
-  const themeLabel = theme === "dark" ? t("theme.switchToLight") : t("theme.switchToDark");
-  const cv = getCvDownload(locale);
+  const themeLabel =
+    theme === "dark" ? t("theme.switchToLight") : t("theme.switchToDark");
+  const cv = getCvPreview(locale);
 
   const controls = (
     <div className="flex items-center gap-2">
@@ -36,10 +37,10 @@ export default function Header() {
           id="language-select"
           aria-label={t("language.select")}
           value={locale}
-          onChange={(event) => setLocale(event.target.value as Locale)}
+          onChange={event => setLocale(event.target.value as Locale)}
           className="max-w-[6.5rem] appearance-none bg-transparent pr-1 text-xs font-semibold text-foreground outline-none"
         >
-          {languageOptions.map((option) => (
+          {languageOptions.map(option => (
             <option key={option.value} value={option.value}>
               {option.label}
             </option>
@@ -55,7 +56,11 @@ export default function Header() {
         title={themeLabel}
         className="border-border text-foreground hover:border-primary hover:text-primary"
       >
-        {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+        {theme === "dark" ? (
+          <Sun className="h-4 w-4" />
+        ) : (
+          <Moon className="h-4 w-4" />
+        )}
       </Button>
     </div>
   );
@@ -80,8 +85,11 @@ export default function Header() {
           </span>
         </motion.a>
 
-        <nav className="hidden items-center gap-6 lg:flex" aria-label={t("nav.primary")}>
-          {navLinks.map((link) => (
+        <nav
+          className="hidden items-center gap-6 lg:flex"
+          aria-label={t("nav.primary")}
+        >
+          {navLinks.map(link => (
             <motion.a
               key={link.href}
               href={link.href}
@@ -96,11 +104,18 @@ export default function Header() {
 
         <div className="hidden items-center gap-3 lg:flex">
           {controls}
-          <Button variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
+          <Button
+            variant="default"
+            className="bg-primary text-primary-foreground hover:bg-primary/90"
+            asChild
+          >
             <a
               href={cv.href}
-              download={cv.filename}
-              onClick={() => trackEvent("cv_download", { location: "header_desktop", locale })}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                trackEvent("cv_preview", { location: "header_desktop", locale })
+              }
             >
               {t("header.download")}
             </a>
@@ -112,12 +127,18 @@ export default function Header() {
           <motion.button
             type="button"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? t("header.closeMenu") : t("header.openMenu")}
+            aria-label={
+              isMenuOpen ? t("header.closeMenu") : t("header.openMenu")
+            }
             aria-expanded={isMenuOpen}
             className="rounded-lg p-2 text-foreground transition-colors hover:bg-secondary"
             whileTap={{ scale: 0.95 }}
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </motion.button>
         </div>
       </div>
@@ -130,7 +151,7 @@ export default function Header() {
           className="border-t border-border bg-secondary lg:hidden"
         >
           <div className="container flex flex-col gap-4 py-4">
-            {navLinks.map((link) => (
+            {navLinks.map(link => (
               <a
                 key={link.href}
                 href={link.href}
@@ -140,11 +161,21 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
-            <Button variant="default" className="w-full bg-primary text-primary-foreground hover:bg-primary/90" asChild>
+            <Button
+              variant="default"
+              className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+              asChild
+            >
               <a
                 href={cv.href}
-                download={cv.filename}
-                onClick={() => trackEvent("cv_download", { location: "header_mobile", locale })}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackEvent("cv_preview", {
+                    location: "header_mobile",
+                    locale,
+                  })
+                }
               >
                 {t("header.download")}
               </a>
