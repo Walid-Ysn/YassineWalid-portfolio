@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useLanguage, type Locale } from "@/contexts/LanguageContext";
 import { useTheme } from "@/contexts/ThemeContext";
-import { getCvPreview, openCvPreview } from "@/lib/cv";
+import { getCvPreview } from "@/lib/cv";
 import { trackEvent } from "@/lib/analytics";
 
 export default function Header() {
@@ -113,14 +113,12 @@ export default function Header() {
               href={cv.href}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={event => {
-                event.preventDefault();
+              onClick={() =>
                 trackEvent("cv_preview", {
                   location: "header_desktop",
                   locale,
-                });
-                void openCvPreview(cv.href);
-              }}
+                })
+              }
             >
               {t("header.download")}
             </a>
@@ -175,14 +173,12 @@ export default function Header() {
                 href={cv.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={event => {
-                  event.preventDefault();
+                onClick={() =>
                   trackEvent("cv_preview", {
                     location: "header_mobile",
                     locale,
-                  });
-                  void openCvPreview(cv.href);
-                }}
+                  })
+                }
               >
                 {t("header.download")}
               </a>
