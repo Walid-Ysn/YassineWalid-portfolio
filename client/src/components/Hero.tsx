@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getGmailComposeUrl } from "@/lib/contact";
-import { getCvPreview } from "@/lib/cv";
+import { getCvPreview, openCvPreview } from "@/lib/cv";
 import { trackEvent } from "@/lib/analytics";
 
 /**
@@ -164,9 +164,11 @@ export default function Hero() {
               href={cv.href}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() =>
-                trackEvent("cv_preview", { location: "hero", locale })
-              }
+              onClick={event => {
+                event.preventDefault();
+                trackEvent("cv_preview", { location: "hero", locale });
+                void openCvPreview(cv.href);
+              }}
             >
               {t("hero.download")}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
